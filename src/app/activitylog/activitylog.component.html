@@ -1,0 +1,45 @@
+<app-navbar></app-navbar>
+
+<div class="dash">
+    <div class="bread">
+        <ul>
+            <li><a routerLink="/Dashboard"><i class="fa fa-dashboard"></i>Dashboard</a></li>
+        </ul>
+    </div>
+    
+    <div class="vital-states col-lg-12">
+	<div class="titile-bar-headers">
+            <span>Activity Log All users</span>
+        </div>
+        <div class="vital-states-container">
+            
+            
+            <div class="active_user" *ngFor="let active of data">
+                 <div class="user">
+                     <img src="assets/images/user.png" style="height:50px; widht:50px; float:left">
+                     <span style="color:#2E4372; cursor: pointer" (click)="particular_user_activity(active.employee_id)">{{active.name}}</span>
+                 </div>
+                <div class="roles_subrole" *ngFor="let roles of active.roles">
+                     <span>Team: {{roles.role_name}}</span>
+                     <span>Roles: {{roles.sub_role_name}}</span>
+                 </div>
+                 <div class="clearfix"></div>
+            </div>
+<!--            
+            <table class="schooling-table">
+                <tr>
+                    <th style="width:100px">Name</th>
+                    <th style="width:600px">Team</th>
+                    <th style="width:200px">Role</th>
+                </tr>
+                <tr *ngFor="let item of data">
+                    <td>{{item.name}}</td>
+                    <td *ngFor="let roles of item.roles">{{roles.role_name}} - {{roles.sub_role_name}}</td>
+                    <td><button type="button" (click)="particular_user_view(item.employee_id)"><img src="assets/images/view-icon.png" style="widht:20px; height:20px"></button>
+                    <button type="button" (click)="particular_user_edit(item.employee_id)"><img src="assets/images/edit-icon.png" style="widht:20px; height:20px"></button>
+                    </td>
+                </tr>
+            </table>-->
+        </div>
+    </div>
+</div>

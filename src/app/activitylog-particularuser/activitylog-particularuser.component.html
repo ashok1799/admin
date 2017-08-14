@@ -1,0 +1,27 @@
+<app-navbar></app-navbar>
+
+<div class="dash">
+    <div class="bread">
+        <ul>
+            <li><a routerLink="/Dashboard"><i class="fa fa-dashboard"></i>Dashboard</a></li>
+        </ul>
+    </div>
+    
+    <div class="vital-states col-lg-12">
+	<div class="titile-bar-headers">
+            <span>Activity Log Details</span>
+            <span style="float:right; margin-right:10px"><button type="button" (click)="cancel()">Back</button></span>
+        </div>
+        <div class="vital-states-container" *ngIf="activity.length == 0">
+            <div><span>No activity log to this user</span></div>
+        </div>
+        <div class="vital-states-container" *ngIf="activity.length != 0">
+            <table class="schooling-table">
+                <tr *ngFor="let user of activity">
+                    <td>{{user.description}}</td>
+                    <td>{{user.datetime}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

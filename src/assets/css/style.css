@@ -1,0 +1,108 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 8 May, 2017, 6:38:29 PM
+    Author     : brigi
+*/
+
+
+body{background:#ebebeb}
+
+ 
+
+
+
+
+
+/* signup pgae css */
+
+.signup-container{background:#ebebeb; padding-top:50px; padding-bottom:70px}
+.login-logo{width:202px; margin-bottom:100px;}
+.signup-details{padding-top:50px; }
+.signup-logo{padding-bottom: 50px}
+.img-center{margin:0 auto}
+.signup-checkbox span{float:left; font-size:13px !important;}
+.signup-checkbox span a{color:#333; margin:-2px 0 0}
+.social-login-link{padding:8px 0 10px 10px}
+.social-login-link img {padding:8px 0}
+.signup-link{padding:30px 0 0 0} 
+.signup-link span{padding: 0 10px;}
+
+.signup-button-home{margin-top:70px}
+
+signup-form {
+  padding: 10px;
+  max-width: 320px;
+}
+
+.r2jfind-dropdown
+{
+    display: block;
+    width: 100%;
+    height: 27px;
+    padding: 2px 12px 2px 8px;
+    font-size: 14px;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    }
+
+
+select:invalid { color: gray; }
+
+.signup-input {
+    display: block;
+    width: 100%;
+    height: 27px;
+    padding: 2px 12px;
+    font-size: 14px;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+
+.signup-button {
+  margin: 10px 0;
+  color: #fff;
+  background-color: #337ab7;
+  border: 1px solid #2e6da4;
+  border-radius: 3px;
+  padding: 4px 8px;
+  font-size: 1em;
+  font-weight: 300;
+  width:100%;
+}
+
+.signup-button[disabled] {
+  background-color: #337ab7;
+  border-color: #2e6da4;
+  opacity: .65;
+  cursor: not-allowed;
+}
+
+control-messages div {
+  color: #E82C0C;
+  margin: 6px 0;
+}
+
+
+.bread{margin-top:50px;  padding: 10px 15px;  margin-bottom: 15px;   list-style: none;  background-color: #f5f5f5;   border-radius: 4px;}
+.bread ul li a {color:#000;}
+.bread ul li{list-style: none; padding:0px; margin:5px 0;}
+.bread ul{padding:0px; margin:0;}
+
+.panel-default > .panel-heading {
+    background-color: #4fb948 !important;
+    border-color: #ddd;
+    color: #333;
+}
+
+.panel-body{padding:0px !important;}

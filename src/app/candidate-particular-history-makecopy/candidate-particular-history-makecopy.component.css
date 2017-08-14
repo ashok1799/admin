@@ -1,0 +1,10 @@
+.dash{margin-left:225px;}
+.titile-bar-headers{padding:10px 10px; background:#4fb948; color:#fff;}
+.vital-states-container{padding:30px 20px; background:#ebebeb; overflow:hidden}
+.personal-details{padding:30px 20px; background:#ebebeb; overflow:hidden}
+.personal-detail-input{float:left; padding:0 10px;}
+.personal-detail-input-fields{margin: 10px 0; padding: 0 10px; overflow: hidden;}
+.personal-detail-input-fields label {text-align: right; width:250px;}
+.address{width:195px;}
+.add-on-features{margin:30px 0 30px; overflow: hidden; width:100%}
+.add-on-features h4{margin: 0 0 20px 250px; width:200px;}

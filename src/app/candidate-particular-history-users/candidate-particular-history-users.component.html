@@ -1,0 +1,69 @@
+<app-navbar></app-navbar>
+
+<div class="dash">
+    <div class="bread">
+        <ul>
+            <li><a routerLink="/Dashboard"><i class="fa fa-dashboard"></i>Dashboard</a></li>
+        </ul>
+    </div>
+    
+    <div class="vital-states col-lg-12">
+	<div class="titile-bar-headers">
+            <span>Plan Associate Candidates</span>
+        </div>
+        
+        <div class="personal-details">
+            
+            <div class="container">
+                <ul class="nav nav-pills">
+                  <li class="active"><a data-toggle="pill" href="#menu1">Active</a></li>
+                  <li><a data-toggle="pill" href="#menu2">In-Active</a></li>
+                </ul>
+
+                <div class="tab-content">
+                    <div *ngIf="data != null && data.success == 'false'" id="menu1" class="tab-pane fade in active"><span class="message">No Candidates for active</span></div>
+                        <div id="menu1" class="tab-pane fade in active">
+                            <table class="active-table" border="1">
+                              <tr>
+                                <th>S.No</th>
+                                <th>Name</th>
+                                <th>Mobile Number</th>
+                                <th>Interviews</th>
+                              </tr>
+                              <tr *ngFor="let user of data?.active; let row_no = index">
+                                <td>{{row_no + 1}}</td>
+                                <td>{{user.name}}</td>
+                                <td>{{user.contuct_no}}</td>
+                                <td>{{user.no_of_interviews_attended}} / {{user.total_interviews}}</td>
+                              </tr>
+                            </table>
+                        </div>
+                
+                        <div id="menu2" class="tab-pane fade">
+                            <div *ngIf="data != null && data.success == 'false'">No Candidates for In-active</div>
+                              <div>
+                                  <table class="active-table" border="1">
+                                    <tr>
+                                      <th>S.No</th>
+                                      <th>Name</th>
+                                      <th>Mobile Number</th>
+                                      <th>Interviews</th>
+                                    </tr>
+                                    <tr *ngFor="let user of data?.in_active; let row_no = index">
+                                      <td>{{row_no + 1}}</td>  
+                                      <td>{{user.name}}</td>
+                                      <td>{{user.contact_no}}</td>
+                                      <td>{{user.no_of_interviews_attended}} / {{user.total_interviews}}</td>
+                                    </tr>
+                                  </table>
+                              </div>
+                      </div>
+                </div>
+            </div>
+            
+        </div>
+        
+
+        
+    </div>
+</div>

@@ -1,0 +1,81 @@
+<app-navbar></app-navbar>
+
+<div class="dash">
+    <div class="bread">
+        <ul>
+            <li><a routerLink="/Dashboard"><i class="fa fa-dashboard"></i>Dashboard</a></li>
+        </ul>
+    </div>
+    
+        <div class="col-lg-12">
+            <div class="titile-bar-headers">
+                <span>Free Plan Details </span>
+            </div>
+            <div class="personal-details">
+                <div style="margin-bottom: 25px">      
+                    
+                            <div class="personal-detail-input-fields">
+                                <div class="personal-detail-input"> <label for="name">Label:</label></div>
+                                    <div class="personal-detail-input">{{data?.label_name}}
+                                    </div>
+                            </div>
+                            
+
+                    
+                            <div class="personal-detail-input-fields">
+                                <div class="personal-detail-input"> <label for="name">Date:</label></div>
+                                    <div class="personal-detail-input">{{data?.start_date}} to {{data?.end_date}}
+                                    </div>
+                            </div>
+                    
+                    
+                            <div class="personal-detail-input-fields">
+                                <div class="personal-detail-input"> <label for="name">Timestamp:</label></div>
+                                    <div class="personal-detail-input">{{data?.timestamp_start}} to {{data?.timestamp_end}}</div>
+                            </div>
+                    
+                    
+                            <div class="personal-detail-input-fields">
+                                <div class="personal-detail-input"> <label for="name">Plan created by:</label></div>
+                                    <div class="personal-detail-input">{{data?.created_by}}</div>
+                            </div>
+                    
+                            <div class="personal-detail-input-fields">
+                                <div class="personal-detail-input"> <label for="name">No of Job Posts:</label></div>
+                                <div class="personal-detail-input">{{data?.no_of_jobs}}</div>
+                            </div>
+                    
+                            <div class="personal-detail-input-fields">
+                                <div class="personal-detail-input"> <label for="name">Companies Enrolled:</label></div>
+                                <div class="personal-detail-input">{{data?.companies_enrolled}}</div>
+                            </div>
+                    
+                            <div class="add-feature">
+                                <table width="810" border="1">
+                                  <tr>
+                                    <td style="width:200px">Features / Plan</td>
+                                    <td style="width:200px">Dailywages - High priority</td>
+                                    <td style="width:200px">Dailywages - Low priority</td>
+                                    <!--<td *ngFor="let company of data?.plans" class="company_type">{{company.company_type}}</td>-->  
+                                  </tr>
+                                  <tr>
+                                    <td>Criteria</td>
+                                    <td *ngFor="let daily of data?.plans">{{daily.criteria}}</td>
+                                  </tr>
+                                  <tr>
+                                    <td>Commission % (based on the offered wage)</td>
+                                    <td *ngFor="let daily of data?.plans">{{daily.commission_on_wages_in_percentage}}</td>
+                                  </tr>
+                                </table>
+                            </div>
+                    
+                </div>
+                
+                <div class="backbtn">
+                    <span><button type="button" (click)="cancel()">Back</button></span>
+                </div>
+                
+            </div>
+        </div>
+    
+</div>

@@ -1,0 +1,42 @@
+<app-navbar></app-navbar>
+
+<div class="dash">
+    <div class="bread">
+        <ul>
+            <li><a routerLink="/Dashboard"><i class="fa fa-dashboard"></i>Dashboard</a></li>
+        </ul>
+    </div>
+    <div class="personal-details">
+        <div class="plans col-lg-10 col-lg-offset-1">
+            <div class="titile-bar-headers">
+                <span>Dailywages Plan Associated Company</span>
+            </div>
+            <div class="plan-container">
+                <div class="plan-history">
+                    <div class="history">
+                        <button type="button" (click)="cancel()">Back</button>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div *ngIf="data.length == 0" class="nodata">No companies to associate this plan</div>
+                <div *ngIf="data != null" class="add-feature">
+                    <table width="810" border="1">
+                      <tr>
+                        <td style="width:200px">S.No</td>
+                        <td style="width:200px">Company Name</td>
+                        <td style="width:200px">No of Job Posts</td>
+                        <td style="width:200px">Candidates Selected</td>
+                      </tr>
+                      <tr *ngFor="let associate of data; let i = index">
+                          <td>{{i + 1}}</td>
+                          <td>{{associate.company_name}}</td>
+                          <td>{{associate.no_of_job_posts}}</td>
+                          <td>{{associate.candidates_selected}}</td>
+                      </tr>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

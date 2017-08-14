@@ -1,0 +1,131 @@
+<app-navbar></app-navbar>
+<div class="dash">
+    <div class="bread">
+        <ul>
+            <li><a routerLink="/Dashboard"><i class="fa fa-dashboard"></i>Dashboard</a></li>
+        </ul>
+    </div>
+    
+    <div class="vital-states col-lg-12">
+	<div class="titile-bar-headers">
+            <span>In-Active User Particular Edit</span>
+        </div>
+        
+        <div class="personal-details">
+                <div class="personal-detail-input-fields">
+			<div class="personal-detail-input"> <label for="name">Name:</label></div>
+			<div class="personal-detail-input"><input placeholder="First Name" [(ngModel)]="userCreation.first_name" class="signup-input" maxlength="25"/></div>
+			<div class="personal-detail-input"><input placeholder="Last Name" [(ngModel)]="userCreation.last_name" class="signup-input" maxlength="25"/></div>
+		</div>
+            
+                <div class="personal-detail-input-fields">
+			<div class="personal-detail-input"> <label for="name">Employee ID:</label></div>
+			<div class="personal-detail-input"> <input class="signup-input" [(ngModel)]="userCreation.employee_id" maxlength="10"/></div>
+		</div>    
+            
+<!--                <div class="personal-detail-input-fields">
+			<div class="personal-detail-input"> <label for="name">Set a Password:</label></div>
+			<div class="personal-detail-input"> <input type="password" [(ngModel)]="userCreation.password" class="signup-input" maxlength="10"/></div>
+		</div>   -->
+            
+            
+                <div class="personal-detail-input-fields">
+			<div class="personal-detail-input"> <label for="name">Email ID:</label></div>
+			<div class="personal-detail-input"><input [(ngModel)]="userCreation.email" placeholder="Email Address" class="signup-input"/></div>
+		</div>
+		
+		<div class="personal-detail-input-fields">
+			<div class="personal-detail-input"> <label for="name">Phone Number:</label></div>
+			<div class="personal-detail-input"> <input [(ngModel)]="userCreation.contact_number" OnlyNumber="true" placeholder="Primary Phone Number" class="signup-input" maxlength="10"/></div>
+		</div>  
+            
+            
+                <div class="personal-detail-input-fields">
+			<div class="personal-detail-input"> <label for="name">Extension:</label></div>
+			<div class="personal-detail-input"><input [(ngModel)]="userCreation.extension" class="signup-input"/></div>
+		</div>
+
+        
+                <div class="personal-detail-input-fields">
+                    <div class="personal-detail-input"> <label for="name">Branch:</label></div>
+                        <div class="personal-detail-input">
+                            <select class="r2jfind-dropdown address" [(ngModel)]="userCreation.branch" (change)="onSelect(userCreation.branch)">
+                                <option *ngFor="let branch of meta?.branches" value="{{branch.branch_name}}">{{branch.branch_name}}</option>
+                            </select>
+                        </div>
+                </div>
+  
+    
+                <div class="personal-detail-input-fields">
+                    <div class="personal-detail-input"> <label for="name">City:</label></div>
+                        <div class="personal-detail-input">
+                            <input class="signup-input" [(ngModel)]="userCreation.city">
+                        </div>
+                </div>
+
+
+                <div class="personal-detail-input-fields">
+                    <div class="personal-detail-input"> <label for="name">State:</label></div>
+                    <div class="personal-detail-input"> <input [(ngModel)]="userCreation.state" class="signup-input"> </div>
+                </div>
+
+		
+		<div class="personal-detail-input-fields">
+                    <div class="personal-detail-input"> <label for="name">Building:</label></div>
+                    <div class="personal-detail-input"><input [(ngModel)]="userCreation.building" class="signup-input"/></div>
+		</div>
+            
+                <div class="personal-detail-input-fields">
+                    <div class="personal-detail-input"> <label for="name">Floor:</label></div>
+                    <div class="personal-detail-input"><input [(ngModel)]="userCreation.floor" class="signup-input"/></div>
+		</div>
+            
+            
+                <div class="personal-detail-input-fields">
+                    <div class="personal-detail-input"> <label for="name">Designation:</label></div>
+                    <div class="personal-detail-input"><input [(ngModel)]="userCreation.designation" class="signup-input"/></div>
+		</div>
+            
+                <div class="personal-detail-input-fields">
+                    <div class="personal-detail-input"> <label for="name">Team / Role:</label></div>
+                        <div class="col-lg-3 personal-detail-input">
+                            <accordion>
+                                    <accordion-group [heading]="group.role_name" *ngFor="let group of userCreation?.roles_status">
+                                      <div *ngFor="let c of group.sub_role_status"><input type="checkbox" [checked]="c.checked == 'true'" value="c.checked" (change)="updateChecked(c.s_r_name, group.role_name, $event)"><span>{{c.s_r_name}}</span></div>
+                                    </accordion-group>
+                            </accordion>
+                        </div>
+                
+                </div>
+
+
+                <div class="personal-detail-input-fields">
+                    <div class="personal-detail-input"> <label for="name">Taluks Covered:</label></div>
+                    <div class="personal-detail-input"><input [(ngModel)]="userCreation.area_allocated" class="signup-input"/><span>More than one taluk seperate by coma</span></div>
+                </div>
+            
+                <div class="personal-detail-input-fields">
+                    <div class="personal-detail-input"> <label for="name">Reporting To:</label></div>
+                        <div class="personal-detail-input">
+                            <select class="r2jfind-dropdown address" [(ngModel)]="userCreation.f_reporting_staff_email">
+                              <option *ngFor="let emp of meta?.reporting_staff" value="{{emp.email}}">{{emp.name}} &nbsp;&nbsp; {{emp.email}}</option>  
+                            </select>
+                        </div>
+                </div>
+            
+            
+                <div class="personal-detail-input-fields">
+                    <div class="personal-detail-input"> <label for="name">Active:</label></div>
+                    <div class="personal-detail-input"> <input [(ngModel)]="userCreation.active" type="radio" name="exper" [value]="1"> Yes</div>
+                    <div class="personal-detail-input"> <input [(ngModel)]="userCreation.active" type="radio" name="exper" [value]="0"> No</div>
+                </div>  
+		
+		<div class="personal-detail-input-fields">
+			<button  (click)="save()">Save</button>
+                        <button  (click)="back()">Cancel</button>
+		</div>
+
+        </div>
+        
+    </div>
+</div>

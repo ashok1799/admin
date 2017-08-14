@@ -1,0 +1,38 @@
+<app-navbar></app-navbar>
+
+<div class="dash">
+    <div class="bread">
+        <ul>
+            <li><a routerLink="/Dashboard"><i class="fa fa-dashboard"></i>Dashboard</a> / <a routerLink="/CompanyPriceConfiguration">CompanyPriceConfiguration</a></li>
+        </ul>
+    </div>
+    
+            <div class="col-lg-12 schooling">
+                <div class="titile-bar-headers">
+                    <span>Companies Plan History</span>
+                </div>
+                <div class="vital-states">
+                    <table class="schooling-table">
+                        <tr>
+                            <th style="width:150px">Label</th>
+                            <th style="width:150px">Period</th>
+                            <th style="width:100px">No of Job Posts</th>
+                            <th style="width:200px">Companies Enrolled</th>
+                            <th style="width:150px">Action</th>
+                        </tr>
+                       <tr *ngFor="let company of data">
+                            <td>{{company.label_name}}</td>
+                            <td>{{company.plan_start_date}} - {{company.plan_end_date}}</td>
+                            <td>{{company.no_of_jobs}}</td>
+                            <td>{{company.companies_enrolled}}</td>
+                            <td><button (click)="cmp_plan_history_view('normal', company.label_name)"><img src="assets/images/view-icon.png" style="widht:20px; height:20px"></button>
+                            <button (click)="cmp_plan_history_makecopy('normal', company.label_name)"><img src="assets/images/copy.png" style="widht:20px; height:20px"></button>
+                            <button (click)="cmp_plan_history_users('normal', company.label_name)"><img src="assets/images/users.jpg" style="widht:20px; height:20px"></button>
+                            </td>
+                            <!--<td>{{school.candidate_jn_grad_cour_spec_id}}</td>-->
+                        </tr>
+                    </table>
+                    <div class="backbtn"><button type="button" (click)="back()">Back</button></div>
+                </div>
+            </div>  
+</div>

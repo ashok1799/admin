@@ -1,0 +1,22 @@
+.dash{margin-left:225px;}
+.titile-bar-headers{padding:10px 10px; background:#4fb948; color:#fff;}
+.vital-states-container{padding:30px 20px; background:#ebebeb; overflow:hidden}
+.personal-details{padding:30px 20px; background:#ebebeb; overflow:hidden}
+.plans{overflow:hidden; margin-bottom: 30px}
+.plan-container{padding:10px 10px; overflow:hidden; background:#fff; width:100%}
+.plan-details{float:left; width:50%; overflow: hidden}
+.interview{float:left; display:block; overflow: hidden}
+.plan-history{float:right; width:50%; overflow: hidden}
+.history{float:right}
+.feature{width:100%; padding:10px 0}
+.add-feature{width:100%; overflow:hidden; padding:15px 10px}
+.interview-list{padding:5px 5px; overflow: hidden}
+.box{float:left; padding: 0 10px; width:70px}
+
+table td{width:100px; text-align: center; padding:0 10px}
+table td input{width:100px; text-align: center; border:none}
+table tr{margin:10px 0}
+
+.company_type{
+    text-transform: capitalize;
+}

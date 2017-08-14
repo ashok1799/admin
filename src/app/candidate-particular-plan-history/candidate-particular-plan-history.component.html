@@ -1,0 +1,49 @@
+<app-navbar></app-navbar>
+
+<div class="dash">
+    <div class="bread">
+        <ul>
+            <li><a routerLink="/Dashboard"><i class="fa fa-dashboard"></i>Dashboard</a></li>
+        </ul>
+    </div>
+    
+            <div class="col-lg-12 schooling">
+                <div class="titile-bar-headers">
+                    <span *ngIf="data != null">{{data[0].plan_name | uppercase}} PLAN</span>
+                </div>
+                <div class="vital-states" *ngIf="data != null">
+                    <table class="schooling-table">
+                        <tr *ngIf="data[0].plan_name != 'diamond' && data[0].plan_name != 'platinum'" style="width:100px">
+                            <th style="width:150px">Label</th>
+                            <th style="width:200px">Period</th>
+                            <th style="width:100px">Price</th>
+                            <th style="width:100px">Interviews</th>
+                            <th style="width:150px">Total Candidates</th>
+                            <th style="width:200px">Action</th>
+                        </tr>
+                        <tr  *ngIf="data[0].plan_name == 'diamond' || data[0].plan_name == 'platinum'" >
+                            <th style="width:150px">Label</th>
+                            <th style="width:200px">Period</th>
+                            <th style="width:100px">Days Salary</th>
+                            <th style="width:100px">Interviews</th>
+                            <th style="width:150px">Total Candidates</th>
+                            <th style="width:200px">Action</th>
+                        </tr>
+
+                        <tr *ngFor="let school of data">
+                            <td>{{school.label_name}}</td>
+                            <td>{{school.period}}</td>
+                            <td>{{school.price}}</td>
+                            <td>{{school.no_of_interviews_offered}}</td>
+                            <td>{{school.no_of_candidates}}</td>
+                            <td><button (click)="plan_history_view(school.plan_id)"><img src="assets/images/view-icon.png" style="widht:20px; height:20px"></button>
+                            <button (click)="plan_history_makecopy(school.plan_id)"><img src="assets/images/copy.png" style="widht:20px; height:20px"></button>
+                            <button (click)="plan_history_users(school.plan_id)"><img src="assets/images/users.jpg" style="widht:20px; height:20px"></button>
+                            </td>
+                            <!--<td>{{school.candidate_jn_grad_cour_spec_id}}</td>-->
+                        </tr>
+                    </table>
+                </div>
+            </div>  
+    
+</div>

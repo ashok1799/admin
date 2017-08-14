@@ -1,0 +1,7 @@
+.dash{margin-left:225px;}
+.titile-bar-headers{padding:10px 10px; background:#4fb948}
+.vital-states-container{padding:30px 20px; background:#ebebeb; overflow:hidden}
+.active_user{width:325px; float:left; padding:10px 0; height:150px;}
+.user{width:80px; padding:0 10px; float:left; text-align: center;}
+.roles_subrole{width:240px; float:right;}
+.roles_subrole span{display:block}

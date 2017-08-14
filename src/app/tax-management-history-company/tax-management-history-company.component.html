@@ -1,0 +1,37 @@
+<app-navbar></app-navbar>
+
+<div class="dash">
+    <div class="bread">
+        <ul>
+            <li><a routerLink="/Dashboard"><i class="fa fa-dashboard"></i>Dashboard</a></li>
+        </ul>
+    </div>
+    
+    <div class="vital-states col-lg-12">
+	<div class="titile-bar-headers">
+            <span>Company history</span>
+        </div>
+        <div class="vital-states-container">
+            
+            <table class="schooling-table">
+                <tr>
+                    <th style="width:150px">Label</th>
+                    <th style="width:150px">Tax Component</th>
+                    <th style="width:200px">Tax Percentage %</th>
+                    <th style="width:200px">Start Time</th>
+                    <th style="width:200px">End Time</th>
+                    <th style="width:200px">View</th>
+                </tr>
+                <tr *ngFor="let item of data">
+                    <td>{{item.label}}</td>
+                    <td>{{item.company_tax_component}}</td>
+                    <td>{{item.company_tax_percentage}}</td> 
+                    <td>{{item.start_time}}</td> 
+                    <td>{{item.end_time}}</td> 
+                    <td><button type="button" (click)="particular_assoicate_view(item.company_tax_id)"><img src="assets/images/view-icon.png" style="width:20px; height:20px"></button></td>
+                </tr>
+            </table>
+            <div class="backbtn"><button type="button" (click)="cancel()">Back</button></div>
+        </div>
+    </div>
+</div>

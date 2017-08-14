@@ -1,0 +1,38 @@
+<app-navbar></app-navbar>
+
+<div class="dash">
+    <div class="bread">
+        <ul>
+            <li><a routerLink="/Dashboard"><i class="fa fa-dashboard"></i>Dashboard</a></li>
+        </ul>
+    </div>
+    
+    <div class="vital-states col-lg-12">
+	<div class="titile-bar-headers">
+            <span>In-Active Users</span>
+        </div>
+        <div class="vital-states-container">
+            
+            <table class="schooling-table">
+                <tr>
+                    <th style="width:150px">Name</th>
+                    <th style="width:150px">Mobile Number</th>
+                    <th style="width:200px">Location</th>
+                    <th style="width:150px">Role</th>
+                    <th style="width:150px">Reporting To</th>
+                    <th style="width:100px">Action</th>
+                </tr>
+                <tr *ngFor="let item of data">
+                    <td>{{item.first_name}}</td>
+                    <td>{{item.mobile_number}}</td>
+                    <td>{{item.city}}</td> 
+                    <td>{{item.role}}</td>
+                    <td>{{item.reported_staff}}</td> 
+                    <td><button type="button" (click)="inactive_particular_user_view(item.employee_id)"><img src="assets/images/view-icon.png" style="widht:20px; height:20px"></button>
+                    <button type="button" (click)="inactive_particular_user_edit(item.employee_id)"><img src="assets/images/edit-icon.png" style="widht:20px; height:20px"></button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+</div>
+</div>

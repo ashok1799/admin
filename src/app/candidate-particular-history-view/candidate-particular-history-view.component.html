@@ -1,0 +1,103 @@
+<app-navbar></app-navbar>
+
+<div class="dash">
+    <div class="bread">
+        <ul>
+            <li><a routerLink="/Dashboard"><i class="fa fa-dashboard"></i>Dashboard</a></li>
+        </ul>
+    </div>
+    
+    <div class="vital-states col-lg-12">
+	<div class="titile-bar-headers">
+            <span>Plan Details</span>
+        </div>
+        
+        <div class="personal-details">
+            
+            <div class="personal-detail-input-fields">
+                <div class="personal-detail-input"> <label for="name">Label:</label></div>
+                <div class="personal-detail-input">{{candidateprice != null ? candidateprice.label_name : ""}}</div>
+            </div>
+            
+            <div class="personal-detail-input-fields">
+                <div class="personal-detail-input"> <label for="name">Date:</label></div>
+                <div class="personal-detail-input">{{candidateprice != null ? candidateprice.plan_start_date : ""}} to {{candidateprice != null ? candidateprice.plan_end_date : ""}}</div>
+            </div>
+            
+            <div class="personal-detail-input-fields">
+                <div class="personal-detail-input"> <label for="name">Time Stamp:</label></div>
+                <div class="personal-detail-input">{{candidateprice != null ? candidateprice.timestamp_start : ""}} to {{candidateprice != null ? candidateprice.timestamp_end : ""}}</div>
+            </div>
+            
+            
+            <div class="personal-detail-input-fields">
+                <div class="personal-detail-input"> <label for="name">Plan Created By:</label></div>
+                <div class="personal-detail-input">{{candidateprice != null ? candidateprice.f_created_by : ""}}</div>
+            </div>
+            
+            
+            <div class="personal-detail-input-fields">
+                <div class="personal-detail-input"> <label for="name">Active Candidates:</label></div>
+                <div class="personal-detail-input">{{candidateprice != null ? candidateprice.active_candidate : ""}}</div>
+            </div>
+            
+            
+            <div class="personal-detail-input-fields">
+                <div class="personal-detail-input"> <label for="name">In-Active Candidates:</label></div>
+                <div class="personal-detail-input">{{candidateprice != null ? candidateprice.inactive_candidate : ""}}</div>
+            </div>
+            
+
+            <div class="personal-detail-input-fields">
+                <div class="personal-detail-input"> <label for="name">Validity:</label></div>
+                <div class="personal-detail-input">{{candidateprice != null ? candidateprice.plan_validity_in_days : ""}}</div>
+            </div>
+            
+            <div class="personal-detail-input-fields">
+                <div class="personal-detail-input"> <label for="name">Pick Up Drop:</label></div>
+                <div class="personal-detail-input" *ngIf="candidateprice != null && candidateprice.pick_up_drop == 1"> Yes</div>
+                <div class="personal-detail-input" *ngIf="candidateprice != null && candidateprice.pick_up_drop == 0"> No</div>
+            </div>
+
+            <div class="personal-detail-input-fields">
+                <div class="personal-detail-input"> <label for="name">Food:</label></div>
+                <div class="personal-detail-input" *ngIf="candidateprice != null && candidateprice.food == 1"> Yes</div>
+                <div class="personal-detail-input" *ngIf="candidateprice != null && candidateprice.food == 0"> No</div>
+            </div>
+
+
+            <div class="personal-detail-input-fields">
+                <div class="personal-detail-input"> <label for="name">Guide to Interview Location:</label></div>
+                <div class="personal-detail-input" *ngIf="candidateprice != null && candidateprice.guide_to_interview_location == 1"> Yes</div>
+                <div class="personal-detail-input" *ngIf="candidateprice != null && candidateprice.guide_to_interview_location == 0"> No</div>
+            </div>
+
+
+            <div class="personal-detail-input-fields">
+                <div class="personal-detail-input"> <label for="name">Accommodation Temporary:</label></div>
+                <div class="personal-detail-input" *ngIf="candidateprice != null && candidateprice.temporary_accomodation == 1"> Yes</div>
+                <div class="personal-detail-input" *ngIf="candidateprice != null && candidateprice.temporary_accomodation == 0"> No</div>
+            </div>
+
+            <div class="personal-detail-input-fields">
+                <div class="personal-detail-input"> <label for="name">Accommodation Permanent:</label></div>
+                <div class="personal-detail-input" *ngIf="candidateprice != null && candidateprice.permanent_accomodation == 1"> Yes</div>
+                <div class="personal-detail-input" *ngIf="candidateprice != null && candidateprice.permanent_accomodation == 0"> No</div>
+            </div>
+
+            <div class="personal-detail-input-fields">
+                <div class="personal-detail-input"> <label for="name">City Maps & Route Maps:</label></div>
+                <div class="personal-detail-input" *ngIf="candidateprice != null && candidateprice.city_map_bus_route == 1"> Yes</div>
+                <div class="personal-detail-input" *ngIf="candidateprice != null && candidateprice.city_map_bus_route == 0"> No</div>
+            </div>
+
+
+            <div class="personal-detail-input-fields">
+                <div class="personal-detail-input"> <button type="button" (click)="back()">back</button></div>
+            </div>
+        </div>
+        
+
+        
+    </div>
+</div>

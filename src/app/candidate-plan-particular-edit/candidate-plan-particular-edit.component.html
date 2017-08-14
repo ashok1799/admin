@@ -1,0 +1,137 @@
+<app-navbar></app-navbar>
+
+<div class="dash">
+    <div class="bread">
+        <ul>
+            <li><a routerLink="/Dashboard"><i class="fa fa-dashboard"></i>Dashboard</a></li>
+        </ul>
+    </div>
+    
+    <div class="vital-states col-lg-12">
+	<div class="titile-bar-headers">
+            <span>Candidates Plan particular edit</span>
+        </div>
+        
+        <div class="personal-details">
+            
+            <div class="personal-detail-input-fields">
+                <div class="personal-detail-input"> <label for="name">No of Interviews:</label></div>
+                <div class="personal-detail-input"><input placeholder="No of Interviews" class="signup-input" [(ngModel)]="candidateprice.no_of_interviews_offered"/></div>
+            </div>
+            
+            
+            <div class="personal-detail-input-fields">
+                <div class="personal-detail-input"> <label for="name">Price:</label></div>
+                <div class="personal-detail-input"><input placeholder="Price" class="signup-input" [(ngModel)]="candidateprice.plan_cost"/></div>
+                <div class="personal-detail-input"><span style="float:right; padding: 5px;" *ngIf="candidateprice.plan_name == 'diamond'">Days Salary</span><span style="float:right; padding: 5px;" *ngIf="candidateprice.plan_name == 'platinum'">Days Salary</span></div>
+            </div>
+            
+            <div class="personal-detail-input-fields">
+                <div class="personal-detail-input"> <label for="name">Job Priority:</label></div>
+                    <div class="personal-detail-input">
+                        <select class="r2jfind-dropdown address" [(ngModel)]="candidateprice.job_priority">
+                          <option value="first">1</option>
+                          <option value="second">2</option>
+                          <option value="third">3</option>
+                          <option value="fourth">4</option>
+                          <option value="fifth">5</option>
+                        </select>
+                    </div>
+            </div>
+            
+            <div class="personal-detail-input-fields">
+                <div class="personal-detail-input"> <label for="name">Validity (days):</label></div>
+                <div class="personal-detail-input"><input placeholder="Validity" class="signup-input" [(ngModel)]="candidateprice.plan_validity_in_days"/></div>
+            </div>
+            
+            <div class="add-on-features">
+                
+                <h4>Add on Features</h4>
+                    <div class="personal-detail-input-fields">
+                        <div class="personal-detail-input"> <label for="name">Pick Up Drop:</label></div>
+                        <div class="personal-detail-input"> <input type="radio" name="pick_up_drop" [value]="1" [(ngModel)]="candidateprice.pick_up_drop"> Yes</div>
+                        <div class="personal-detail-input"> <input type="radio" [(ngModel)]="candidateprice.pick_up_drop" name="pick_up_drop" [value]="0" > No</div>
+                    </div>
+                
+                    <div class="personal-detail-input-fields">
+                        <div class="personal-detail-input"> <label for="name">Food:</label></div>
+                        <div class="personal-detail-input"> <input type="radio" name="food" [value]="1" [(ngModel)]="candidateprice.food"> Yes</div>
+                        <div class="personal-detail-input"> <input type="radio" name="food" [value]="0" [(ngModel)]="candidateprice.food"> No</div>
+                    </div>
+                
+                
+                    <div class="personal-detail-input-fields">
+                        <div class="personal-detail-input"> <label for="name">Guide to Interview Location:</label></div>
+                        <div class="personal-detail-input"> <input type="radio" name="guide_to_interview_location" [value]="1" [(ngModel)]="candidateprice.guide_to_interview_location"> Yes</div>
+                        <div class="personal-detail-input"> <input type="radio" name="guide_to_interview_location" [value]="0" [(ngModel)]="candidateprice.guide_to_interview_location"> No</div>
+                    </div>
+                
+                
+                    <div class="personal-detail-input-fields">
+                        <div class="personal-detail-input"> <label for="name">Accommodation Temporary:</label></div>
+                        <div class="personal-detail-input"> <input type="radio" name="temporary_accomodation" [value]="1" [(ngModel)]="candidateprice.temporary_accomodation"> Yes</div>
+                        <div class="personal-detail-input"> <input type="radio" name="temporary_accomodation" [value]="0" [(ngModel)]="candidateprice.temporary_accomodation"> No</div>
+                    </div>
+                
+                    <div class="personal-detail-input-fields">
+                        <div class="personal-detail-input"> <label for="name">Accommodation Permanent:</label></div>
+                        <div class="personal-detail-input"> <input type="radio" name="permanent_accomodation" [value]="1" [(ngModel)]="candidateprice.permanent_accomodation"> Yes</div>
+                        <div class="personal-detail-input"> <input type="radio" name="permanent_accomodation" [value]="0" [(ngModel)]="candidateprice.permanent_accomodation"> No</div>
+                    </div>
+                
+                    <div class="personal-detail-input-fields">
+                        <div class="personal-detail-input"> <label for="name">City Maps & Route Maps:</label></div>
+                        <div class="personal-detail-input"> <input type="radio" name="exper" [value]="1" [(ngModel)]="candidateprice.city_map_bus_route"> Yes</div>
+                        <div class="personal-detail-input"> <input type="radio" name="exper" [value]="0" [(ngModel)]="candidateprice.city_map_bus_route"> No</div>
+                    </div>
+                
+                
+            </div>
+            
+                    <div class="personal-detail-input-fields">
+                        <div class="personal-detail-input"> <button type="button" class="btn btn-info btn-sm add_new_role" data-toggle="modal" data-target="#myModal" (click)="save()">save</button></div>
+                        <!--<button type="button" class="btn btn-info btn-sm add_new_role" data-toggle="modal" data-target="#myModal">Add New Role</button>-->
+                        <div class="personal-detail-input"> <button type="button" (click)="back()">cancel</button></div>
+                    </div>
+            
+                    <div class="col-lg-3">
+                      <!-- Modal -->
+                      <div class="modal fade" id="myModal" role="dialog">
+                            <div class="modal-dialog">
+
+                              <!-- Modal content-->
+                              <div class="modal-content">
+                                    <div class="modal-header">
+                                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                      <h4 class="modal-title">Edit plan details</h4>
+                                    </div>
+                                    <div class="modal-body">
+
+                                        <div class="personal-detail-input-fields">
+                                            <div class="personal-detail-input"> <p>Your previous plan will be De-activated and new plan will be activated</p><p>Click Ok to confirm</p> </div>
+                                        </div>
+
+                                        <div class="personal-detail-input-fields">
+                                            <div class="personal-detail-input"><button type="button" (click)="change_plan()">Save</button></div>
+                                            <div class="personal-detail-input"><button type="button">Cancel</button></div>
+                                        </div>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    </div>
+                              </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+            
+            
+           
+        </div>
+        
+
+        
+    </div>
+</div>

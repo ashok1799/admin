@@ -1,0 +1,118 @@
+<app-navbar></app-navbar>
+
+<div class="dash">
+    <div class="bread">
+        <ul>
+            <li><a routerLink="/Dashboard"><i class="fa fa-dashboard"></i>Dashboard</a></li>
+        </ul>
+    </div>
+    
+    <div class="vital-states col-lg-12">
+	<div class="titile-bar-headers">
+            <span>Active Users Particular View</span>
+        </div>
+        
+        <div class="personal-details">
+                <div class="personal-detail-input-fields">
+			<div class="personal-detail-input"> <label for="name">First Name:</label></div>
+			<div class="personal-detail-input">{{data?.first_name}}</div>
+			<div class="personal-detail-input"><label for="name">Last Name:</label></div>
+                        <div class="personal-detail-input">{{data?.last_name}}</div>
+		</div>
+            
+                <div class="personal-detail-input-fields">
+			<div class="personal-detail-input"> <label for="name">Employee ID:</label></div>
+			<div class="personal-detail-input"> {{data?.employee_id}}</div>
+		</div>    
+            
+<!--                <div class="personal-detail-input-fields">
+			<div class="personal-detail-input"> <label for="name">Set a Password:</label></div>
+			<div class="personal-detail-input"> {{data?.password}}</div>
+		</div>   -->
+            
+            
+                <div class="personal-detail-input-fields">
+			<div class="personal-detail-input"> <label for="name">Email ID:</label></div>
+			<div class="personal-detail-input">{{data?.email}}</div>
+		</div>
+		
+		<div class="personal-detail-input-fields">
+			<div class="personal-detail-input"> <label for="name">Phone Number:</label></div>
+			<div class="personal-detail-input"> {{data?.contact_number}}</div>
+		</div>  
+            
+            
+                <div class="personal-detail-input-fields">
+			<div class="personal-detail-input"> <label for="name">Extension:</label></div>
+			<div class="personal-detail-input">{{data?.extension}}</div>
+		</div>
+            
+            
+                <div class="personal-detail-input-fields">
+                    <div class="personal-detail-input"> <label for="name">State:</label></div>
+                        <div class="personal-detail-input">{{data?.state}}</div>
+                    </div>
+        
+                <div class="personal-detail-input-fields">
+                    <div class="personal-detail-input"> <label for="name">Branch:</label></div>
+                        <div class="personal-detail-input">{{data?.branch}}</div>
+                </div>
+
+    
+    
+                <div class="personal-detail-input-fields">
+                    <div class="personal-detail-input"> <label for="name">City:</label></div>
+                        <div class="personal-detail-input">{{data?.city}}</div>
+                </div>
+		
+		<div class="personal-detail-input-fields">
+                    <div class="personal-detail-input"> <label for="name">Building:</label></div>
+                    <div class="personal-detail-input">{{data?.building}}</div>
+		</div>
+            
+                <div class="personal-detail-input-fields">
+                    <div class="personal-detail-input"> <label for="name">Floor:</label></div>
+                    <div class="personal-detail-input">{{data?.floor}}</div>
+		</div>
+            
+            
+                <div class="personal-detail-input-fields">
+                    <div class="personal-detail-input"> <label for="name">Designation:</label></div>
+                    <div class="personal-detail-input">{{data?.designation}}</div>
+		</div>
+            
+                <div class="personal-detail-input-fields">
+                    <div class="personal-detail-input"> <label for="name">Team / Role:</label></div>
+                    <div class="personal-detail-input" *ngFor="let role of data?.roles">{{role.role_name}}</div>
+		</div>
+            
+            
+                <div class="personal-detail-input-fields">
+                    <div class="personal-detail-input"> <label for="name">Sub-Role:</label></div>
+                    <div class="personal-detail-input" *ngFor="let sub of data?.roles"><span *ngFor="let sub_role of sub.sub_role_name">{{sub_role}}&nbsp;&nbsp;</span></div>
+		</div>
+
+                <div class="personal-detail-input-fields">
+                    <div class="personal-detail-input"> <label for="name">Taluks Covered:</label></div>
+                        <div class="personal-detail-input">{{data?.area_allocated}}</div>
+                </div>
+            
+                <div class="personal-detail-input-fields">
+                    <div class="personal-detail-input"> <label for="name">Reporting To:</label></div>
+                        <div class="personal-detail-input">{{data?.f_reporting_staff}}</div>
+                </div>
+            
+            
+                <div class="personal-detail-input-fields">
+                    <div class="personal-detail-input"> <label for="name">Active:</label></div>
+                    <div *ngIf="data?.active == 1" class="personal-detail-input"> Yes</div>
+                    <div *ngIf="data?.active == 0" class="personal-detail-input"> Yes</div>
+                </div>  
+		
+		<div class="personal-detail-input-fields">
+			<button  type="button" (click)="back()">Back</button>
+		</div>
+        </div>
+        
+    </div>
+</div>

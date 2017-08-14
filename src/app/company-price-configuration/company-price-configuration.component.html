@@ -1,0 +1,211 @@
+<app-navbar></app-navbar>
+
+<div class="dash">
+    <div class="bread">
+        <ul>
+            <li><a routerLink="/Dashboard"><i class="fa fa-dashboard"></i>Dashboard</a></li>
+        </ul>
+    </div>
+    
+    <div class="vital-states col-lg-12">
+	<div class="titile-bar-headers">
+            <span>Company Price configuration</span>
+        </div>
+        
+        <div class="personal-details">
+            
+            <div class="plans col-lg-10 col-lg-offset-1">
+                <div class="titile-bar-headers">
+                    <span>Free Plan</span>
+                </div>
+                <div class="plan-container">
+                    <div class="plan-history">
+                        <div class="history">
+                            <button type="button" (click)="free_plan_history('free')">view history</button>
+                            <button type="button" (click)="free_plan_edit()">edit</button>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="add-feature">
+                        <table width="810" border="1">
+                          <tr>
+                            <td style="width:200px">Features / Plan</td>
+                            <td *ngFor="let company of data?.free" class="company_type">{{company.company_type}}</td>  
+                          </tr>
+                          <tr>
+                            <td>Price</td>
+                            <td *ngFor="let price of data?.free">{{price.plan_cost}}</td>
+                          </tr>
+                          <tr>
+                            <td>Vacancies per post</td>
+                            <td *ngFor="let job_post of data?.free">{{job_post.no_of_job_posts}}</td>
+                          </tr>
+                          <tr>
+                            <td>Posts per Month</td>
+                            <td *ngFor="let posts_per_month of data?.free">{{posts_per_month.posts_per_month}}</td>
+                          </tr>
+                          <tr>
+                            <td>No of Vacancy</td>
+                            <td *ngFor="let vacancies of data?.free">{{vacancies.no_of_vacancies}}</td>
+                          </tr>
+                          <tr>
+                            <td>Salary Limit</td>
+                            <td *ngFor="let salary of data?.free">{{salary.salary_limit}}</td>
+                          </tr>
+                          <tr>
+                            <td>Replacement Warranty</td>
+                            <td *ngFor="let replacement of data?.free">{{replacement.replacement_warranty}}</td>
+                          </tr>
+                          <tr>
+                            <td>No of candidates to be sent for interview</td>
+                            <td *ngFor="let candidate_limit of data?.free">{{candidate_limit.candidate_limit_per_post}}</td>
+                          </tr>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+            
+            
+            <div class="plans col-lg-10 col-lg-offset-1">
+                <div class="titile-bar-headers">
+                    <span>Companies</span>
+                </div>
+                <div class="plan-container">
+                    <div class="plan-history">
+                        <div class="history">
+                            <button type="button" (click)="company_plan_history('normal')">view history</button>
+                            <button type="button" (click)="company_plan_edit()">edit</button>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="add-feature">
+                        <table width="810" border="1">
+                          <tr>
+                            <td style="width:150px">Features / Plan</td>
+                            <td *ngFor="let company of data?.normal" class="company_type">{{company.company_type}}</td>  
+                          </tr>
+                          <tr>
+                            <td>Price</td>
+                            <td *ngFor="let price of data?.normal">{{price.plan_cost}}</td>
+                          </tr>
+<!--                          <tr>
+                            <td>No of Job Posts</td>
+                            <td *ngFor="let job_post of data?.normal">{{job_post.no_of_job_posts}}</td>
+                          </tr>-->
+                          <tr>
+                            <td>Salary Limit</td>
+                            <!--<td *ngFor="let salary of data?.normal">{{salary.salary_limit}}</td>-->
+                            <td *ngIf="data?.normal[0]!=null"><span>below</span> {{data?.normal[0].salary_limit}}</td>
+                            <td *ngIf="data?.normal[1]!=null"><span>above</span> {{data?.normal[1].salary_limit}}</td>
+                          </tr>
+                          <tr>
+                            <td>Replacement Warranty</td>
+                            <td *ngFor="let replacement of data?.normal">{{replacement.replacement_warranty}}</td>
+                          </tr>
+                          <tr>
+                            <td>No of candidates to be sent for interview</td>
+                            <td *ngFor="let candidate_limit of data?.normal">{{candidate_limit.candidate_limit_per_post}}</td>
+                          </tr>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+            
+            
+            <div class="plans col-lg-10 col-lg-offset-1">
+                <div class="titile-bar-headers">
+                    <span>Priority Sourcing</span>
+                </div>
+                <div class="plan-container">
+                    <div class="plan-history">
+                        <div class="history">
+                            <button type="button" (click)="priority_plan_history('priority')">view history</button>
+                            <button type="button" (click)="priority_plan_edit()">edit</button>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="add-feature">
+                        <table width="810" border="1">
+<!--                          <tr>
+                            <td style="width:200px">Features / Plan</td>
+                            <td style="width:150px">Priority Sourcing - 1</td>
+                            <td style="width:150px">Priority Sourcing - 2</td>
+                            <td style="width:150px">Priority Sourcing - 3</td>
+                            <td style="width:150px">Priority Sourcing - 4</td>
+                            <td style="width:150px">Priority Sourcing - 5</td>
+                          </tr>-->
+                          
+                          <tr>
+                            <td style="width:200px">Features / Plan</td>
+                            <td *ngFor="let company of data?.priority" class="company_type">{{company.company_type}}</td>  
+                          </tr>
+                          
+                          <tr>
+                            <td>Price</td>
+                            <td *ngFor="let price of data?.priority">{{price.plan_cost}}</td>
+                          </tr>
+<!--                          <tr>
+                            <td>No of Job Posts</td>
+                            <td *ngFor="let job_post of data?.priority">{{job_post.no_of_job_posts}}</td>
+                          </tr>-->
+                          <tr>
+                            <td>Salary Limit</td>
+                            <td *ngFor="let salary of data?.priority">{{salary.salary_limit}}</td>
+                          </tr>
+                          <tr>
+                            <td>Replacement Warranty</td>
+                            <td *ngFor="let replacement of data?.priority">{{replacement.replacement_warranty}}</td>
+                          </tr>
+                          <tr>
+                            <td>No of candidates to be sent for interview</td>
+                            <td *ngFor="let candidate_limit of data?.priority">{{candidate_limit.candidate_limit_per_post}}</td>
+                          </tr>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="plans col-lg-10 col-lg-offset-1">
+                <div class="titile-bar-headers">
+                    <span>Daily Wages</span>
+                </div>
+                <div class="plan-container">
+                    <div class="plan-history">
+                        <div class="history">
+                            <button type="button" (click)="dailywage_plan_history('wages')">view history</button>
+                            <button type="button" (click)="dailywage_plan_edit()">edit</button>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="add-feature">
+                        <table width="810" border="1">
+                          <tr>
+                            <td style="width:150px">Features / Plan</td>
+                            <td>Dailywages - High priority</td>
+                            <td>Dailywages - Low priority</td>
+                          </tr>
+                          <tr>
+                            <td>Criteria</td>
+                            <!--<td *ngFor="let criteria of data?.wages">{{criteria.criteria}}</td>-->
+                            <td *ngIf="data?.wages[0]!=null"><span>Requierd within</span> {{data?.wages[0].criteria}} <span>days</span></td>
+                            <td *ngIf="data?.wages[1]!=null"><span>Requierd after</span> {{data?.wages[0].criteria}} <span>days</span></td>
+                          </tr>
+                          <tr>
+                            <td>Commission % (based on the offered wage)</td>
+                            <td *ngFor="let commission of data?.wages">{{commission.commission_on_wages_in_percentage}}</td>
+                          </tr>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+            
+            
+            
+            
+        </div>
+    </div>
+</div>

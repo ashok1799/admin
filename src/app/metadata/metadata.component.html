@@ -1,0 +1,367 @@
+<app-navbar></app-navbar>
+
+<div class="dash">
+    <div class="bread">
+        <ul>
+            <li><a routerLink="/Dashboard"><i class="fa fa-dashboard"></i>Dashboard</a></li>
+        </ul>
+    </div>
+    
+    <div class="vital-states col-lg-12">
+	<div class="titile-bar-headers">
+            <span>Meta data Management</span>
+        </div>
+        
+        <div class="personal-details">
+                <div class="metadata col-lg-5 col-lg-offset-3">
+                    <accordion>
+                        <accordion-group heading="ID Card"  isGroupOpen="true">
+                            <div *ngFor="let idcard of data?.id_card" class="add_new"><span class="hov">{{idcard}}</span><span class="metahide" style="float:right"><button type="button" data-toggle="modal" data-target="#myModal4" (click)="meta_data_send(idcard, 'id_card')" >Edit</button></span></div>
+                            <button type="button" (click)="send_type('id_card')" class="btn btn-info btn-sm add_new_role" data-toggle="modal" data-target="#myModal">Add Data</button>
+                        </accordion-group>
+                    </accordion>
+                    <accordion>
+                        <accordion-group heading="Board" isGroupOpen="true">
+                            <div *ngFor="let board of data?.board" class="add_new"><span>{{board}}</span><span class="metahide" style="float:right"><button type="button" data-toggle="modal" data-target="#myModal4" (click)="meta_data_send(board, 'board')" >Edit</button></span></div>
+                            <button type="button" (click)="send_type('board')" class="btn btn-info btn-sm add_new_role" data-toggle="modal" data-target="#board">Add Data</button>
+                        </accordion-group>
+                    </accordion>
+                    <accordion>
+                        <accordion-group heading="Institution" isGroupOpen="true">
+                            <div *ngFor="let institution of data?.institution" class="add_new"><span>{{institution}}</span><span class="metahide" style="float:right"><button type="button" data-toggle="modal" data-target="#myModal4" (click)="meta_data_send(institution, 'institution')" >Edit</button></span></div>
+                            <button type="button" (click)="send_type('institution')" class="btn btn-info btn-sm add_new_role" data-toggle="modal" data-target="#institution">Add Data</button>
+                        </accordion-group>
+                    </accordion>
+                    <accordion>
+                        <accordion-group heading="Gradution" isGroupOpen="true">
+                            <div *ngFor="let graduation of data?.graduation" class="add_new1"><span>{{graduation.graduation_name}}</span><span style="margin-left:20px">{{graduation.graduation_type}}</span><span class="metahide" style="float:right"><button type="button" data-toggle="modal" data-target="#myModal4" (click)="meta_data_send(graduation.graduation_name, 'graduation')" >Edit</button></span></div>
+                            <button type="button" (click)="send_type('graduation')" class="btn btn-info btn-sm add_new_role" data-toggle="modal" data-target="#myModal">Add Data</button>
+                        </accordion-group>
+                    </accordion>
+                    <accordion>
+                        <accordion-group heading="Course" isGroupOpen="true">
+                            <div *ngFor="let course of data?.course" class="add_new"><span>{{course}}</span><span class="metahide" style="float:right"><button type="button" data-toggle="modal" data-target="#myModal4" (click)="meta_data_send(course, 'course')" >Edit</button></span></div>
+                            <button type="button" (click)="send_type('course')" class="btn btn-info btn-sm add_new_role" data-toggle="modal" data-target="#myModal2">Add Data</button>
+                        </accordion-group>
+                    </accordion>
+                    <accordion>
+                        <accordion-group heading="Specialization" isGroupOpen="true">
+                            <div *ngFor="let specialization of data?.specialization" class="add_new"><span>{{specialization}}</span><span class="metahide" style="float:right"><button type="button" data-toggle="modal" data-target="#myModal4" (click)="meta_data_send(specialization, 'specialization')" >Edit</button></span></div>
+                            <button type="button" (click)="send_type('specialization')" class="btn btn-info btn-sm add_new_role" data-toggle="modal" data-target="#myModal3">Add Data</button>
+                        </accordion-group>
+                    </accordion>
+                    <accordion>
+                        <accordion-group heading="Industry" isGroupOpen="true">
+                            <div *ngFor="let industry of data?.industry" class="add_new"><span>{{industry}}</span><span class="metahide" style="float:right"><button type="button" data-toggle="modal" data-target="#myModal4" (click)="meta_data_send(industry, 'industry')" >Edit</button></span></div>
+                            <button type="button" (click)="send_type('industry')" class="btn btn-info btn-sm add_new_role" data-toggle="modal" data-target="#myModal">Add Data</button>
+                        </accordion-group>
+                    </accordion>
+                    <accordion>
+                        <accordion-group heading="Sector" isGroupOpen="true">
+                            <div *ngFor="let sector of data?.sector" class="add_new"><span>{{sector}}</span><span class="metahide" style="float:right"><button type="button" data-toggle="modal" data-target="#myModal4" (click)="meta_data_send(sector, 'sector')" >Edit</button></span></div>
+                            <button type="button" (click)="send_type('sector')" class="btn btn-info btn-sm add_new_role" data-toggle="modal" data-target="#myModal">Add Data</button>
+                        </accordion-group>
+                    </accordion>
+                    <accordion>
+                        <accordion-group heading="Functional Area" isGroupOpen="true">
+                            <div *ngFor="let functional_area of data?.functional_area" class="add_new"><span>{{functional_area}}</span><span class="metahide" style="float:right"><button type="button" data-toggle="modal" data-target="#myModal4" (click)="meta_data_send(functional_area, 'functional_area')" >Edit</button></span></div>
+                            <button type="button" (click)="send_type('functional_area')" class="btn btn-info btn-sm add_new_role" data-toggle="modal" data-target="#myModal">Add Data</button>
+                        </accordion-group>
+                    </accordion>
+                    
+                    <accordion>
+                        <accordion-group heading="Certification" isGroupOpen="true">
+                            <div *ngFor="let certification of data?.certification" class="add_new"><span>{{certification}}</span><span class="metahide" style="float:right"><button type="button" data-toggle="modal" data-target="#myModal4" (click)="meta_data_send(certification, 'certification')" >Edit</button></span></div>
+                            <button type="button" (click)="send_type('certification')" class="btn btn-info btn-sm add_new_role" data-toggle="modal" data-target="#myModal">Add Data</button>
+                        </accordion-group>
+                    </accordion>
+<!--                    <accordion>
+                        <accordion-group heading="State" isGroupOpen="true">
+                            <div *ngFor="let state of data?.state" class="add_new"><span>{{state}}</span></div>
+                            <button type="button" class="btn btn-info btn-sm add_new_role" data-toggle="modal" data-target="#myModal">Add Data</button>
+                        </accordion-group>
+                    </accordion>-->
+                    <accordion>
+                        <accordion-group heading="Branch" isGroupOpen="true">
+                            <div *ngFor="let branch of data?.branch" class="add_new"><span>{{branch.branch_name}}</span><span class="metahide" style="float:right"><button type="button" data-toggle="modal" data-target="#myModal4" (click)="meta_data_send(branch.branch_name, 'branch')" >Edit</button></span></div>
+                            <button type="button" (click)="send_type('branch')" class="btn btn-info btn-sm add_new_role" data-toggle="modal" data-target="#myModal1">Add Data</button>
+                        </accordion-group>
+                    </accordion>
+<!--                    <accordion>
+                        <accordion-group heading="City" isGroupOpen="true">
+                            <div *ngFor="let city of data?.city" class="add_new"><span>{{city}}</span></div>
+                            <button type="button" class="btn btn-info btn-sm add_new_role" data-toggle="modal" data-target="#myModal1">Add Data</button>
+                        </accordion-group>
+                    </accordion>-->
+                </div>
+            
+            
+                <div class="add_role_modal">
+                      <!-- Trigger the modal with a button -->
+                      <!--<button type="button" class="btn btn-info btn-sm add_new_role" data-toggle="modal" data-target="#myModal">Add New Role</button>-->
+
+                      <!-- Modal -->
+                      <div class="modal fade" id="myModal" role="dialog">
+                            <div class="modal-dialog">
+
+                              <!-- Modal content-->
+                              <div class="modal-content col-lg-7 col-lg-offset-4">
+                                    <div class="modal-header">
+                                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                      <h4 class="modal-title">Add MetaData</h4>
+                                    </div>
+                                    <div class="modal-body">
+
+                                        <div class="personal-detail-input-fields">
+                                            <div class="personal-detail-input"><input  [(ngModel)]="meta.data" placeholder="Enter the Meta data value" class="signup-input"/></div>
+                                        </div>
+                                        <div class="personal-detail-input-fields">
+                                            <div class="personal-detail-input"><button type="button"(click)="add_metadata()">Save</button></div>
+                                            <div class="personal-detail-input"><button type="button" data-dismiss="modal">Cancel</button></div>
+                                        </div>
+
+                                    </div>
+                              </div>
+
+                            </div>
+                      </div>
+                </div>
+            
+            
+                <div class="add_role_modal">
+                      <!-- Trigger the modal with a button -->
+                      <!--<button type="button" class="btn btn-info btn-sm add_new_role" data-toggle="modal" data-target="#myModal">Add New Role</button>-->
+
+                      <!-- Modal -->
+                      <div class="modal fade" id="board" role="dialog">
+                            <div class="modal-dialog">
+
+                              <!-- Modal content-->
+                              <div class="modal-content col-lg-10 col-lg-offset-2">
+                                    <div class="modal-header">
+                                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                      <h4 class="modal-title">Add MetaData</h4>
+                                    </div>
+                                    <div class="modal-body" style="margin: 0 auto; width: 380px;">
+                                        
+                                        <div class="personal-detail-input-fields">
+                                            <!--<div class="personal-detail-input"> <label for="name">Select School / University:</label></div>-->
+                                            <div class="personal-detail-input">
+                                                    <select class="r2jfind-dropdown address" [(ngModel)]="meta.board_type">
+                                                      <option disabled>Select School / University</option>
+                                                      <option value="SCHOOL">School</option>
+                                                      <option value="UNIVERSITY">University</option>
+                                                    </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="personal-detail-input-fields">
+                                            <div class="personal-detail-input"><input  [(ngModel)]="meta.board_name" placeholder="Enter the Meta data value" class="signup-input"/></div>
+                                        </div>
+                                        <div class="personal-detail-input-fields">
+                                            <div class="personal-detail-input"><button type="button"(click)="add_metadata()">Save</button></div>
+                                            <div class="personal-detail-input"><button type="button" data-dismiss="modal">Cancel</button></div>
+                                        </div>
+
+                                    </div>
+                              </div>
+
+                            </div>
+                      </div>
+                </div>
+            
+            
+                <div class="add_role_modal">
+                      <!-- Trigger the modal with a button -->
+                      <!--<button type="button" class="btn btn-info btn-sm add_new_role" data-toggle="modal" data-target="#myModal">Add New Role</button>-->
+
+                      <!-- Modal -->
+                      <div class="modal fade" id="institution" role="dialog">
+                            <div class="modal-dialog">
+
+                              <!-- Modal content-->
+                              <div class="modal-content col-lg-10 col-lg-offset-2">
+                                    <div class="modal-header">
+                                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                      <h4 class="modal-title">Add MetaData</h4>
+                                    </div>
+                                    <div class="modal-body" style="margin: 0 auto; width: 380px;">
+                                        
+                                        
+                                        <div class="personal-detail-input-fields">
+                                            <div class="personal-detail-input">
+                                                    <select class="r2jfind-dropdown address" [(ngModel)]="meta.institution_type">
+                                                      <option disabled>Select School / College</option>
+                                                      <option value="SCHOOL">School</option>
+                                                      <option value="COLLEGE">College</option>
+                                                    </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="personal-detail-input-fields">
+                                            <div class="personal-detail-input"><input  [(ngModel)]="meta.institution_name" placeholder="Enter the Meta data value" class="signup-input"/></div>
+                                        </div>
+                                        <div class="personal-detail-input-fields">
+                                            <div class="personal-detail-input"><button type="button"(click)="add_metadata()">Save</button></div>
+                                            <div class="personal-detail-input"><button type="button" data-dismiss="modal">Cancel</button></div>
+                                        </div>
+
+                                    </div>
+                              </div>
+
+                            </div>
+                      </div>
+                </div>
+            
+            
+                <div class="add_role_modal">
+                      <!-- Trigger the modal with a button -->
+                      <!--<button type="button" class="btn btn-info btn-sm add_new_role" data-toggle="modal" data-target="#myModal">Add New Role</button>-->
+
+                      <!-- Modal -->
+                      <div class="modal fade" id="myModal1" role="dialog">
+                            <div class="modal-dialog">
+
+                              <!-- Modal content-->
+                              <div class="modal-content col-lg-7 col-lg-offset-4">
+                                    <div class="modal-header">
+                                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                      <h4 class="modal-title">Add MetaData</h4>
+                                    </div>
+                                    <div class="modal-body">
+
+                                        <div class="personal-detail-input-fields">
+                                            <div class="personal-detail-input"><input [(ngModel)]="meta.branch_name" placeholder="Enter the Branch name" class="signup-input"/></div>
+                                            <div class="personal-detail-input middle"><input [(ngModel)]="meta.city_name" placeholder="Enter the city name" class="signup-input"/></div>
+                                            <div class="personal-detail-input"><input [(ngModel)]="meta.state_name" placeholder="Enter the State name" class="signup-input"/></div>
+                                        </div>
+                                        <div class="personal-detail-input-fields">
+                                            <div class="personal-detail-input"><button type="button"(click)="add_metadata()">Save</button></div>
+                                            <div class="personal-detail-input"><button type="button" data-dismiss="modal">Cancel</button></div>
+                                        </div>
+
+                                    </div>
+                              </div>
+
+                            </div>
+                      </div>
+                </div>
+            
+                <div class="add_role_modal">
+                      <!-- Trigger the modal with a button -->
+                      <!--<button type="button" class="btn btn-info btn-sm add_new_role" data-toggle="modal" data-target="#myModal">Add New Role</button>-->
+
+                      <!-- Modal -->
+                      <div class="modal fade" id="myModal2" role="dialog">
+                            <div class="modal-dialog">
+
+                              <!-- Modal content-->
+                              <div class="modal-content col-lg-12">
+                                    <div class="modal-header">
+                                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                      <h4 class="modal-title">Add MetaData</h4>
+                                    </div>
+                                    <div class="modal-body">
+
+                                        <div class="personal-detail-input-fields">
+                                            <div class="personal-detail-input"> <label for="name">Graduation Name:</label></div>
+                                            <div class="personal-detail-input">
+                                                    <select class="r2jfind-dropdown address" [(ngModel)]="meta.graduation_name">
+                                                      <option *ngFor="let graduation of data?.graduation_title" value={{graduation}}>{{graduation}}</option>
+                                                    </select>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="personal-detail-input-fields">
+                                            <div class="personal-detail-input"> <label for="name"></label></div>
+                                            <div class="personal-detail-input"><input  [(ngModel)]="meta.data" placeholder="Enter the Meta data value" class="signup-input"/></div>
+                                        </div>
+                                        
+                                        <div class="button-controls">
+                                            <div class="personal-detail-input"><button type="button"(click)="add_metadata()">Save</button></div>
+                                            <div class="personal-detail-input"><button type="button" data-dismiss="modal">Cancel</button></div>
+                                        </div>
+
+                                    </div>
+                              </div>
+
+                            </div>
+                      </div>
+                </div>
+            
+            <div class="add_role_modal">
+                      <!-- Trigger the modal with a button -->
+                      <!--<button type="button" class="btn btn-info btn-sm add_new_role" data-toggle="modal" data-target="#myModal">Add New Role</button>-->
+
+                      <!-- Modal -->
+                      <div class="modal fade" id="myModal3" role="dialog">
+                            <div class="modal-dialog">
+
+                              <!-- Modal content-->
+                              <div class="modal-content col-lg-12">
+                                    <div class="modal-header">
+                                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                      <h4 class="modal-title">Add MetaData</h4>
+                                    </div>
+                                    <div class="modal-body">
+
+                                        <div class="personal-detail-input-fields">
+                                            <div class="personal-detail-input"> <label for="name">Course:</label></div>
+                                            <div class="personal-detail-input">
+                                                    <select class="r2jfind-dropdown address" [(ngModel)]="meta.course_name">
+                                                      <option *ngFor="let course of data?.course" value={{course}}>{{course}}</option>
+                                                    </select>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="personal-detail-input-fields">
+                                            <div class="personal-detail-input"> <label for="name"></label></div>
+                                            <div class="personal-detail-input"><input  [(ngModel)]="meta.data" placeholder="Enter the Meta data value" class="signup-input"/></div>
+                                        </div>
+                                        
+                                        <div class="button-controls">
+                                            <div class="personal-detail-input"><button type="button"(click)="add_metadata()">Save</button></div>
+                                            <div class="personal-detail-input"><button type="button" data-dismiss="modal">Cancel</button></div>
+                                        </div>
+
+                                    </div>
+                              </div>
+
+                            </div>
+                      </div>
+                </div>
+            
+                <div class="add_role_modal">
+                      <!-- Trigger the modal with a button -->
+                      <!--<button type="button" class="btn btn-info btn-sm add_new_role" data-toggle="modal" data-target="#myModal">Add New Role</button>-->
+
+                      <!-- Modal -->
+                      <div class="modal fade" id="myModal4" role="dialog">
+                            <div class="modal-dialog">
+
+                              <!-- Modal content-->
+                              <div class="modal-content col-lg-7 col-lg-offset-4">
+                                    <div class="modal-header">
+                                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                      <h4 class="modal-title">Edit MetaData</h4>
+                                    </div>
+                                    <div class="modal-body">
+
+                                        <div class="personal-detail-input-fields">
+                                            <div class="personal-detail-input"><input  [(ngModel)]="meta.data" placeholder="Enter the Meta data value" class="signup-input"/></div>
+                                        </div>
+                                        <div class="personal-detail-input-fields">
+                                            <div class="personal-detail-input"><button type="button" (click)="meta_data_edit()">Save</button></div>
+                                            <div class="personal-detail-input"><button type="button" data-dismiss="modal">Cancel</button></div>
+                                        </div>
+
+                                    </div>
+                              </div>
+
+                            </div>
+                      </div>
+                </div>
+        </div>
+        
+    </div>
+</div>

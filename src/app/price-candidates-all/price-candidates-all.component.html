@@ -1,0 +1,362 @@
+<app-navbar></app-navbar>
+
+<div class="dash">
+    <div class="bread">
+        <ul>
+            <li><a routerLink="/Dashboard"><i class="fa fa-dashboard"></i>Dashboard</a></li>
+        </ul>
+    </div>
+    
+    <div class="vital-states col-lg-12">
+	<div class="titile-bar-headers">
+            <span>Candidates Price configuration</span>
+        </div>
+        
+        <div class="personal-details">
+            
+            <div class="plans col-lg-8 col-lg-offset-2">
+                <div class="titile-bar-headers">
+                    <span>Bronze</span>
+                </div>
+                <div class="plan-container">
+                    <div class="plan-details">
+                        <div class="interview">
+                            <div class="interview-list" ><span>No of Interviews - </span><span>{{data != null ? data[0].no_of_interviews_offered : ""}}</span></div>
+                            <div class="interview-list"><span>Price - <i class="fa fa-inr" aria-hidden="true"></i> </span><span>{{data != null ? data[0].plan_cost : ""}}</span></div>
+                            <div class="interview-list"><span>Job Priority - </span><span>{{data != null ? data[0].job_priority : ""}}</span></div>
+                            <div class="interview-list"><span>Validity - </span><span>{{data != null ? data[0].plan_validity_in_days : ""}} (days)</span></div>
+<!--                            <div class="tax-details interview-list" *ngIf="data != null">
+                                <div class="current_tax" *ngFor="let candi of data[0].tax_details">
+                                    <div *ngIf="candi.status =='true'">
+                                        <span>{{candi.candidate_tax_component}} - {{candi.candidate_tax_percentage}}%</span>
+                                    </div>
+                                </div>
+                            </div>-->
+                        </div>
+                    </div>
+                    <div class="plan-history">
+                        <div class="history">
+                            <button type="button" (click)="plan_history('bronze')">view history</button>
+                            <button type="button" (click)="plan_edit(data[0].candidate_plan_id)">edit</button>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+
+                    <div class="add-feature">
+                        <h5>Add On Features</h5>
+                        <table width="640">
+                            <tr>
+                              <td><i class="fa fa-car" aria-hidden="true"></i></td>
+                              <td><i class="fa fa-cutlery" aria-hidden="true"></i></td>
+                              <td><i class="fa fa-street-view" aria-hidden="true"></i></td>
+                              <td><i class="fa fa-bath" aria-hidden="true"></i></td>
+                              <td><i class="fa fa-bed" aria-hidden="true"></i></td>
+                              <td><i class="fa fa-bus" aria-hidden="true"></i></td>
+                            </tr>
+                            <tr>
+                              <td>Pick Up Drop</td>
+                              <td>Food</td>
+                              <td>Guide to Interview Location</td>
+                              <td>Accommodation Temporary</td>
+                              <td>Accommodation Permanent</td>
+                              <td>City Maps & Route Maps</td>
+                            </tr>
+                            <tr>
+                              <td *ngIf="data != null && data[0].pick_up_drop == 0"><i class="fa fa-times" aria-hidden="true"></i></td>
+                              <td *ngIf="data != null && data[0].pick_up_drop == 1"><i class="fa fa-check" aria-hidden="true"></i></td>
+                              <td *ngIf="data != null && data[0].food == 0"><i class="fa fa-times" aria-hidden="true"></i></td>
+                              <td *ngIf="data != null && data[0].food == 1"><i class="fa fa-check" aria-hidden="true"></i></td>
+                              <td *ngIf="data != null && data[0].guide_to_interview_location == 0"><i class="fa fa-times" aria-hidden="true"></i></td>
+                              <td *ngIf="data != null && data[0].guide_to_interview_location == 1"><i class="fa fa-check" aria-hidden="true"></i></td>
+                              <td *ngIf="data != null && data[0].temporary_accomodation == 0"><i class="fa fa-times" aria-hidden="true"></i></td>
+                              <td *ngIf="data != null && data[0].temporary_accomodation == 1"><i class="fa fa-check" aria-hidden="true"></i></td>
+                              <td *ngIf="data != null && data[0].permanent_accomodation == 0"><i class="fa fa-times" aria-hidden="true"></i></td>
+                              <td *ngIf="data != null && data[0].permanent_accomodation == 1"><i class="fa fa-check" aria-hidden="true"></i></td>
+                              <td *ngIf="data != null && data[0].city_map_bus_route == 0"><i class="fa fa-times" aria-hidden="true"></i></td>
+                              <td *ngIf="data != null && data[0].city_map_bus_route == 1"><i class="fa fa-check" aria-hidden="true"></i></td>
+                            </tr>
+                          </table>
+                    </div>
+                </div>
+
+            </div>
+            
+            
+            <div class="plans col-lg-8 col-lg-offset-2">
+                <div class="titile-bar-headers">
+                    <span>Diamond</span>
+                </div>
+                <div class="plan-container">
+                    <div class="plan-details">
+                        <div class="interview">
+                            <div class="interview-list" ><span>No of Interviews - </span><span>{{data != null ? data[1].no_of_interviews_offered : ""}}</span></div>
+                            <div class="interview-list"><span>Price - <i class="fa fa-inr" aria-hidden="true"></i> </span><span>{{data != null ? data[1].plan_cost : ""}} Days Salary</span></div>
+                            <div class="interview-list"><span>Job Priority - </span><span>{{data != null ? data[1].job_priority : ""}}</span></div>
+                            <div class="interview-list"><span>Validity - </span><span>{{data != null ? data[1].plan_validity_in_days : ""}} (days)</span></div>
+<!--                            <div class="tax-details interview-list" *ngIf="data != null">
+                                <div class="current_tax" *ngFor="let candi of data[1].tax_details">
+                                    <div *ngIf="candi.status =='true'">
+                                        <span>{{candi.candidate_tax_component}} - {{candi.candidate_tax_percentage}}%</span>
+                                    </div>
+                                </div>
+                            </div>-->
+                        </div>
+                    </div>
+                    <div class="plan-history">
+                        <div class="history">
+                            <button type="button" (click)="plan_history('diamond')">view history</button>
+                            <button type="button" (click)="plan_edit(data[1].candidate_plan_id)">edit</button>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+
+                    <div class="add-feature">
+                        <h5>Add On Features</h5>
+                        <table width="640">
+                            <tr>
+                              <td><i class="fa fa-car" aria-hidden="true"></i></td>
+                              <td><i class="fa fa-cutlery" aria-hidden="true"></i></td>
+                              <td><i class="fa fa-street-view" aria-hidden="true"></i></td>
+                              <td><i class="fa fa-bath" aria-hidden="true"></i></td>
+                              <td><i class="fa fa-bed" aria-hidden="true"></i></td>
+                              <td><i class="fa fa-bus" aria-hidden="true"></i></td>
+                            </tr>
+                            <tr>
+                              <td>Pick Up Drop</td>
+                              <td>Food</td>
+                              <td>Guide to Interview Location</td>
+                              <td>Accommodation Temporary</td>
+                              <td>Accommodation Permanent</td>
+                              <td>City Maps & Route Maps</td>
+                            </tr>
+                            <tr>
+                              <td *ngIf="data != null && data[1].pick_up_drop == 0"><i class="fa fa-times" aria-hidden="true"></i></td>
+                              <td *ngIf="data != null && data[1].pick_up_drop == 1"><i class="fa fa-check" aria-hidden="true"></i></td>
+                              <td *ngIf="data != null && data[1].food == 0"><i class="fa fa-times" aria-hidden="true"></i></td>
+                              <td *ngIf="data != null && data[1].food == 1"><i class="fa fa-check" aria-hidden="true"></i></td>
+                              <td *ngIf="data != null && data[1].guide_to_interview_location == 0"><i class="fa fa-times" aria-hidden="true"></i></td>
+                              <td *ngIf="data != null && data[1].guide_to_interview_location == 1"><i class="fa fa-check" aria-hidden="true"></i></td>
+                              <td *ngIf="data != null && data[1].temporary_accomodation == 0"><i class="fa fa-times" aria-hidden="true"></i></td>
+                              <td *ngIf="data != null && data[1].temporary_accomodation == 1"><i class="fa fa-check" aria-hidden="true"></i></td>
+                              <td *ngIf="data != null && data[1].permanent_accomodation == 0"><i class="fa fa-times" aria-hidden="true"></i></td>
+                              <td *ngIf="data != null && data[1].permanent_accomodation == 1"><i class="fa fa-check" aria-hidden="true"></i></td>
+                              <td *ngIf="data != null && data[1].city_map_bus_route == 0"><i class="fa fa-times" aria-hidden="true"></i></td>
+                              <td *ngIf="data != null && data[1].city_map_bus_route == 1"><i class="fa fa-check" aria-hidden="true"></i></td>
+                            </tr>
+                          </table>
+                    </div>
+                </div>
+
+            </div>
+            
+            
+            
+            <div class="plans col-lg-8 col-lg-offset-2">
+                <div class="titile-bar-headers">
+                    <span>Gold</span>
+                </div>
+                <div class="plan-container">
+                    <div class="plan-details">
+                        <div class="interview">
+                            <div class="interview-list" ><span>No of Interviews - </span><span>{{data != null ? data[2].no_of_interviews_offered : ""}}</span></div>
+                            <div class="interview-list"><span>Price - <i class="fa fa-inr" aria-hidden="true"></i> </span><span>{{data != null ? data[2].plan_cost : ""}}</span></div>
+                            <div class="interview-list"><span>Job Priority - </span><span>{{data != null ? data[2].job_priority : ""}}</span></div>
+                            <div class="interview-list"><span>Validity - </span><span>{{data != null ? data[2].plan_validity_in_days : ""}} (days)</span></div>
+<!--                            <div class="tax-details interview-list" *ngIf="data != null">
+                                <div class="current_tax" *ngFor="let candi of data[2].tax_details">
+                                    <div *ngIf="candi.status =='true'">
+                                        <span>{{candi.candidate_tax_component}} - {{candi.candidate_tax_percentage}}%</span>
+                                    </div>
+                                </div>
+                            </div>-->
+                        </div>
+                    </div>
+                    <div class="plan-history">
+                        <div class="history">
+                            <button type="button" (click)="plan_history('gold')">view history</button>
+                            <button type="button" (click)="plan_edit(data[2].candidate_plan_id)">edit</button>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="add-feature">
+                        <h5>Add On Features</h5>
+                        <table width="640">
+                            <tr>
+                              <td><i class="fa fa-car" aria-hidden="true"></i></td>
+                              <td><i class="fa fa-cutlery" aria-hidden="true"></i></td>
+                              <td><i class="fa fa-street-view" aria-hidden="true"></i></td>
+                              <td><i class="fa fa-bath" aria-hidden="true"></i></td>
+                              <td><i class="fa fa-bed" aria-hidden="true"></i></td>
+                              <td><i class="fa fa-bus" aria-hidden="true"></i></td>
+                            </tr>
+                            <tr>
+                              <td>Pick Up Drop</td>
+                              <td>Food</td>
+                              <td>Guide to Interview Location</td>
+                              <td>Accommodation Temporary</td>
+                              <td>Accommodation Permanent</td>
+                              <td>City Maps & Route Maps</td>
+                            </tr>
+                            <tr>
+                              <td *ngIf="data != null && data[2].pick_up_drop == 0"><i class="fa fa-times" aria-hidden="true"></i></td>
+                              <td *ngIf="data != null && data[2].pick_up_drop == 1"><i class="fa fa-check" aria-hidden="true"></i></td>
+                              <td *ngIf="data != null && data[2].food == 0"><i class="fa fa-times" aria-hidden="true"></i></td>
+                              <td *ngIf="data != null && data[2].food == 1"><i class="fa fa-check" aria-hidden="true"></i></td>
+                              <td *ngIf="data != null && data[2].guide_to_interview_location == 0"><i class="fa fa-times" aria-hidden="true"></i></td>
+                              <td *ngIf="data != null && data[2].guide_to_interview_location == 1"><i class="fa fa-check" aria-hidden="true"></i></td>
+                              <td *ngIf="data != null && data[2].temporary_accomodation == 0"><i class="fa fa-times" aria-hidden="true"></i></td>
+                              <td *ngIf="data != null && data[2].temporary_accomodation == 1"><i class="fa fa-check" aria-hidden="true"></i></td>
+                              <td *ngIf="data != null && data[2].permanent_accomodation == 0"><i class="fa fa-times" aria-hidden="true"></i></td>
+                              <td *ngIf="data != null && data[2].permanent_accomodation == 1"><i class="fa fa-check" aria-hidden="true"></i></td>
+                              <td *ngIf="data != null && data[2].city_map_bus_route == 0"><i class="fa fa-times" aria-hidden="true"></i></td>
+                              <td *ngIf="data != null && data[2].city_map_bus_route == 1"><i class="fa fa-check" aria-hidden="true"></i></td>
+                            </tr>
+                          </table>
+                    </div>
+                </div>
+
+            </div>
+            
+            
+            
+            <div class="plans col-lg-8 col-lg-offset-2">
+                <div class="titile-bar-headers">
+                    <span>Platinum</span>
+                </div>
+                <div class="plan-container">
+                    <div class="plan-details">
+                        <div class="interview">
+                            <div class="interview-list" ><span>No of Interviews - </span><span>{{data != null ? data[3].no_of_interviews_offered : ""}}</span></div>
+                            <div class="interview-list"><span>Price - <i class="fa fa-inr" aria-hidden="true"></i> </span><span>{{data != null ? data[3].plan_cost : ""}} Days Salary</span></div>
+                            <div class="interview-list"><span>Job Priority - </span><span>{{data != null ? data[3].job_priority : ""}}</span></div>
+                            <div class="interview-list"><span>Validity - </span><span>{{data != null ? data[3].plan_validity_in_days : ""}} (days)</span></div>
+<!--                            <div class="tax-details interview-list" *ngIf="data != null">
+                                <div class="current_tax" *ngFor="let candi of data[3].tax_details">
+                                    <div *ngIf="candi.status =='true'">
+                                        <span>{{candi.candidate_tax_component}} - {{candi.candidate_tax_percentage}}%</span>
+                                    </div>
+                                </div>
+                            </div>-->
+                        </div>
+                    </div>
+                    <div class="plan-history">
+                        <div class="history">
+                            <button type="button" (click)="plan_history('platinum')">view history</button>
+                            <button type="button" (click)="plan_edit(data[3].candidate_plan_id)">edit</button>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="add-feature">
+                        <h5>Add On Features</h5>
+                        <table width="640">
+                            <tr>
+                              <td><i class="fa fa-car" aria-hidden="true"></i></td>
+                              <td><i class="fa fa-cutlery" aria-hidden="true"></i></td>
+                              <td><i class="fa fa-street-view" aria-hidden="true"></i></td>
+                              <td><i class="fa fa-bath" aria-hidden="true"></i></td>
+                              <td><i class="fa fa-bed" aria-hidden="true"></i></td>
+                              <td><i class="fa fa-bus" aria-hidden="true"></i></td>
+                            </tr>
+                            <tr>
+                              <td>Pick Up Drop</td>
+                              <td>Food</td>
+                              <td>Guide to Interview Location</td>
+                              <td>Accommodation Temporary</td>
+                              <td>Accommodation Permanent</td>
+                              <td>City Maps & Route Maps</td>
+                            </tr>
+                            <tr>
+                              <td *ngIf="data != null && data[3].pick_up_drop == 0"><i class="fa fa-times" aria-hidden="true"></i></td>
+                              <td *ngIf="data != null && data[3].pick_up_drop == 1"><i class="fa fa-check" aria-hidden="true"></i></td>
+                              <td *ngIf="data != null && data[3].food == 0"><i class="fa fa-times" aria-hidden="true"></i></td>
+                              <td *ngIf="data != null && data[3].food == 1"><i class="fa fa-check" aria-hidden="true"></i></td>
+                              <td *ngIf="data != null && data[3].guide_to_interview_location == 0"><i class="fa fa-times" aria-hidden="true"></i></td>
+                              <td *ngIf="data != null && data[3].guide_to_interview_location == 1"><i class="fa fa-check" aria-hidden="true"></i></td>
+                              <td *ngIf="data != null && data[3].temporary_accomodation == 0"><i class="fa fa-times" aria-hidden="true"></i></td>
+                              <td *ngIf="data != null && data[3].temporary_accomodation == 1"><i class="fa fa-check" aria-hidden="true"></i></td>
+                              <td *ngIf="data != null && data[3].permanent_accomodation == 0"><i class="fa fa-times" aria-hidden="true"></i></td>
+                              <td *ngIf="data != null && data[3].permanent_accomodation == 1"><i class="fa fa-check" aria-hidden="true"></i></td>
+                              <td *ngIf="data != null && data[3].city_map_bus_route == 0"><i class="fa fa-times" aria-hidden="true"></i></td>
+                              <td *ngIf="data != null && data[3].city_map_bus_route == 1"><i class="fa fa-check" aria-hidden="true"></i></td>
+                            </tr>
+                          </table>
+                    </div>
+                </div>
+
+            </div>
+            
+            
+            
+            <div class="plans col-lg-8 col-lg-offset-2">
+                <div class="titile-bar-headers">
+                    <span>silver</span>
+                </div>
+                <div class="plan-container">
+                    <div class="plan-details">
+                        <div class="interview">
+                            <div class="interview-list" ><span>No of Interviews - </span><span>{{data != null ? data[4].no_of_interviews_offered : ""}}</span></div>
+                            <div class="interview-list"><span>Price - <i class="fa fa-inr" aria-hidden="true"></i> </span><span>{{data != null ? data[4].plan_cost : ""}}</span></div>
+                            <div class="interview-list"><span>Job Priority - </span><span>{{data != null ? data[4].job_priority : ""}}</span></div>
+                            <div class="interview-list"><span>Validity - </span><span>{{data != null ? data[4].plan_validity_in_days : ""}} (days)</span></div>
+<!--                            <div class="tax-details" *ngIf="data != null">
+                                <div class="current_tax" *ngFor="let candi of data[4].tax_details">
+                                    <div *ngIf="candi.status =='true'">
+                                        <span>{{candi.candidate_tax_component}} - {{candi.candidate_tax_percentage}}%</span>
+                                    </div>
+                                </div>
+                            </div>-->
+                        </div>
+                    </div>
+                    <div class="plan-history">
+                        <div class="history">
+                            <button type="button" (click)="plan_history('silver')">view history</button>
+                            <button type="button" (click)="plan_edit(data[4].candidate_plan_id)">edit</button>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="add-feature">
+                        <h5>Add On Features</h5>
+                        <table width="640">
+                            <tr>
+                              <td><i class="fa fa-car" aria-hidden="true"></i></td>
+                              <td><i class="fa fa-cutlery" aria-hidden="true"></i></td>
+                              <td><i class="fa fa-street-view" aria-hidden="true"></i></td>
+                              <td><i class="fa fa-bath" aria-hidden="true"></i></td>
+                              <td><i class="fa fa-bed" aria-hidden="true"></i></td>
+                              <td><i class="fa fa-bus" aria-hidden="true"></i></td>
+                            </tr>
+                            <tr>
+                              <td>Pick Up Drop</td>
+                              <td>Food</td>
+                              <td>Guide to Interview Location</td>
+                              <td>Accommodation Temporary</td>
+                              <td>Accommodation Permanent</td>
+                              <td>City Maps & Route Maps</td>
+                            </tr>
+                            <tr>
+                              <td *ngIf="data != null && data[4].pick_up_drop == 0"><i class="fa fa-times" aria-hidden="true"></i></td>
+                              <td *ngIf="data != null && data[4].pick_up_drop == 1"><i class="fa fa-check" aria-hidden="true"></i></td>
+                              <td *ngIf="data != null && data[4].food == 0"><i class="fa fa-times" aria-hidden="true"></i></td>
+                              <td *ngIf="data != null && data[4].food == 1"><i class="fa fa-check" aria-hidden="true"></i></td>
+                              <td *ngIf="data != null && data[4].guide_to_interview_location == 0"><i class="fa fa-times" aria-hidden="true"></i></td>
+                              <td *ngIf="data != null && data[4].guide_to_interview_location == 1"><i class="fa fa-check" aria-hidden="true"></i></td>
+                              <td *ngIf="data != null && data[4].temporary_accomodation == 0"><i class="fa fa-times" aria-hidden="true"></i></td>
+                              <td *ngIf="data != null && data[4].temporary_accomodation == 1"><i class="fa fa-check" aria-hidden="true"></i></td>
+                              <td *ngIf="data != null && data[4].permanent_accomodation == 0"><i class="fa fa-times" aria-hidden="true"></i></td>
+                              <td *ngIf="data != null && data[4].permanent_accomodation == 1"><i class="fa fa-check" aria-hidden="true"></i></td>
+                              <td *ngIf="data != null && data[4].city_map_bus_route == 0"><i class="fa fa-times" aria-hidden="true"></i></td>
+                              <td *ngIf="data != null && data[4].city_map_bus_route == 1"><i class="fa fa-check" aria-hidden="true"></i></td>
+                            </tr>
+                          </table>
+                    </div>
+                </div>
+
+            </div>
+            
+           
+        </div>
+        
+
+        
+    </div>
+</div>

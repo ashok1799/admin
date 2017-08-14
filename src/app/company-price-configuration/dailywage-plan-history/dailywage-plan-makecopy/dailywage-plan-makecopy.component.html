@@ -1,0 +1,46 @@
+<app-navbar></app-navbar>
+
+<div class="dash">
+    <div class="bread">
+        <ul>
+            <li><a routerLink="/Dashboard"><i class="fa fa-dashboard"></i>Dashboard</a></li>
+        </ul>
+    </div>
+    <div class="personal-details">
+        <div class="plans col-lg-10 col-lg-offset-1">
+            <div class="titile-bar-headers">
+                <span>Dailywages Plan Make a Copy</span>
+            </div>
+            <div class="plan-container">
+                <div class="plan-history">
+                    <div class="history">
+                        <button type="button" [disabled]="showbutton == false" (click)="wages_plan_make_copy()">Save</button>
+                        <button type="button" (click)="cancel()">Back</button>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="add-feature">
+                    <table width="810" border="1">
+                      <tr>
+                        <td style="width:200px">Features / Plan</td>
+                        <td>Dailywages - High priority</td>
+                        <td>Dailywages - Low priority</td>
+                        <!--<td *ngFor="let company of companyplan?.plans" class="company_type">{{company.company_type}}</td>-->  
+                      </tr>
+                      <tr>
+                        <td>Criteria</td>
+                        <!--<td *ngFor="let daily of companyplan?.plans; let i = index"><input name="daily.criteria" value="{{daily.criteria}}" [(ngModel)]="daily.criteria" (change)="update(i, daily.criteria, $event)"/></td>-->
+                            <td *ngIf="companyplan?.plans[0]!=null"><span>Candidates requierd within</span> <input style="width:30px; border:1px solid #d8d8d8;" name="companyplan?.plans[0].criteria" value="{{companyplan?.plans[0].criteria}}" [(ngModel)]="companyplan?.plans[0].criteria" (change)="criteria_change(i, companyplan?.plans[0].criteria, $event)"/> <span>days</span></td>
+                            <td *ngIf="companyplan?.plans[1]!=null"><span>Candidates requierd after</span> {{companyplan?.plans[1].criteria}} <span>days</span></td>
+                      </tr>                     
+                      <tr>
+                        <td>Commission % (based on the offered wage)</td>
+                        <td *ngFor="let daily of companyplan?.plans; let i = index"><input name="daily.commission_on_wages_in_percentage" value="{{daily.commission_on_wages_in_percentage}}" [(ngModel)]="daily.commission_on_wages_in_percentage" (change)="update(i, daily.commission_on_wages_in_percentage, $event)"/></td>
+                      </tr>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

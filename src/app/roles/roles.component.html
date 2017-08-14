@@ -1,0 +1,176 @@
+<app-navbar></app-navbar>
+
+<div class="dash">
+    <div class="bread">
+        <ul>
+            <li><a routerLink="/Dashboard"><i class="fa fa-dashboard"></i>Dashboard</a></li>
+        </ul>
+    </div>
+    
+    <div class="vital-states col-lg-12">
+	<div class="titile-bar-headers">
+            <span>Teams & Roles</span>
+        </div>
+        <div class="vital-states-container">
+            
+            <table class="schooling-table">
+                <tr>
+                    <th style="width:100px">Team</th>
+                    <th style="width:100px">Role</th>
+                    <th style="width:500px">Description</th>
+                    <th style="width:100px">Action</th>
+                </tr>
+                <tr *ngFor="let item of data?.team_role">
+                    <td>{{item.role_name}}</td>
+                    <td>{{item.sub_role_name}}</td>
+                    <td>{{item.description}}</td> 
+                    <td><button type="button" data-toggle="modal" data-target="#myModal1" (click)="roles_descr_edit(item.id, item.role_name, item.sub_role_name, item.description)"><img src="assets/images/edit-icon.png" style="widht:20px; height:20px"></button></td>
+                </tr>
+            </table>
+            
+            <div class="add_team_modal">
+                      <!-- Trigger the modal with a button -->
+                      <button type="button" class="btn btn-info btn-sm add_new_role" data-toggle="modal" data-target="#myModal2">Add New Team</button>
+
+                      <!-- Modal -->
+                      <div class="modal fade" id="myModal2" role="dialog">
+                            <div class="modal-dialog">
+
+                              <!-- Modal content-->
+                              <div class="modal-content">
+                                    <div class="modal-header">
+                                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                      <h4 class="modal-title">New Team Creation</h4>
+                                    </div>
+                                    <div class="modal-body">
+
+                                        <div class="personal-detail-input-fields">
+                                            <div class="personal-detail-input"> <label for="name">Team Name:</label></div>
+                                            <div class="personal-detail-input"><input [(ngModel)]="newteam.team_name" placeholder="Enter your role" class="signup-input"/></div>
+                                        </div>
+
+                                        <div class="personal-detail-input-fields">
+                                            <div class="personal-detail-input"><button type="button" (click)="add_team()">Save</button></div>
+                                            <div class="personal-detail-input"><button type="button" data-dismiss="modal">Cancel</button></div>
+                                        </div>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    </div>
+                              </div>
+
+                            </div>
+                      </div>
+
+            </div>
+                
+            <div class="add_role_modal">
+                      <!-- Trigger the modal with a button -->
+                      <button type="button" class="btn btn-info btn-sm add_new_role" data-toggle="modal" data-target="#myModal" (click)="new_role()">Add New Role</button>
+
+                      <!-- Modal -->
+                      <div class="modal fade" id="myModal" role="dialog">
+                            <div class="modal-dialog">
+
+                              <!-- Modal content-->
+                              <div class="modal-content">
+                                    <div class="modal-header">
+                                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                      <h4 class="modal-title">New Role Creation</h4>
+                                    </div>
+                                    <div class="modal-body">
+
+                                        <div class="personal-detail-input-fields">
+                                            <div class="personal-detail-input"> <label for="name">Team:</label></div>
+                                            <!--<div class="personal-detail-input"><input [(ngModel)]="rolesData.role_name"  placeholder="Enter your team" class="signup-input"/></div>-->
+                                            <div class="personal-detail-input">
+                                                    <select class="r2jfind-dropdown address" [(ngModel)]="new_role_create.role_name">
+<!--                                                      <option value="admin">Admin</option>
+                                                      <option value="support">Support</option>
+                                                      <option value="marketing">Marketing</option>-->
+                                                      <option *ngFor="let team of data?.team" value={{team}}>{{team}}</option>
+                                                    </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="personal-detail-input-fields">
+                                            <div class="personal-detail-input"> <label for="name">Role:</label></div>
+                                            <div class="personal-detail-input"><input [(ngModel)]="new_role_create.sub_role_name" placeholder="Enter your role" class="signup-input"/></div>
+                                        </div>
+
+                                        <div class="personal-detail-input-fields">
+                                            <div class="personal-detail-input"> <label for="name">Description:</label></div>
+                                            <div class="personal-detail-input"><input [(ngModel)]="new_role_create.description" placeholder="Description" class="signup-input"/></div>
+                                        </div>
+
+                                        <div class="personal-detail-input-fields">
+                                            <div class="personal-detail-input"><button type="button" (click)="add_role()">Save</button></div>
+                                            <div class="personal-detail-input"><button type="button" data-dismiss="modal">Cancel</button></div>
+                                        </div>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    </div>
+                              </div>
+
+                            </div>
+                      </div>
+
+            </div>
+            
+            
+            <div class="col-lg-3">
+                      <!-- Modal -->
+                      <div class="modal fade" id="myModal1" role="dialog">
+                            <div class="modal-dialog">
+
+                              <!-- Modal content-->
+                              <div class="modal-content">
+                                    <div class="modal-header">
+                                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                      <h4 class="modal-title">Edit Role and Description</h4>
+                                    </div>
+                                    <div class="modal-body">
+
+                                        <div class="personal-detail-input-fields">
+                                            <div class="personal-detail-input"> <label for="name">Team:</label></div>
+                                            <div class="personal-detail-input"><input [(ngModel)]="rolesData.role_name" placeholder="Enter your team" class="signup-input" disabled/></div>
+                                        </div>
+
+                                        <div *ngIf="rolesData.sub_role_name == 'all'" class="personal-detail-input-fields">
+                                            <div class="personal-detail-input"> <label for="name">Role:</label></div>
+                                            <div class="personal-detail-input"><input [(ngModel)]="rolesData.sub_role_name" placeholder="Enter your role" class="signup-input" disabled/></div>
+                                        </div>
+                                        
+                                        <div *ngIf="rolesData.sub_role_name != 'all'" class="personal-detail-input-fields">
+                                            <div class="personal-detail-input"> <label for="name">Role:</label></div>
+                                            <div class="personal-detail-input"><input [(ngModel)]="rolesData.sub_role_name" placeholder="Enter your role" class="signup-input"/></div>
+                                        </div>
+
+                                        <div class="personal-detail-input-fields">
+                                            <div class="personal-detail-input"> <label for="name">Description:</label></div>
+                                            <div class="personal-detail-input"><input [(ngModel)]="rolesData.description" placeholder="Edit Description" class="signup-input"/></div>
+                                        </div>
+
+                                        <div class="personal-detail-input-fields">
+                                            <div class="personal-detail-input"><button type="button" (click)="change_des()">Save</button></div>
+                                            <div class="personal-detail-input"><button type="button" data-dismiss="modal" >Cancel</button></div>
+                                        </div>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    </div>
+                              </div>
+
+                            </div>
+                      </div>
+
+            </div>
+            
+
+        </div>
+</div>
+</div>

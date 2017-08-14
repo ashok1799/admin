@@ -1,0 +1,10 @@
+.dash{margin-left:225px;}
+.titile-bar-headers{padding:10px 10px; background:#4fb948}
+.personal-details{padding:30px 20px; background:#ebebeb; overflow:hidden}
+.personal-detail-input{float:left; padding:0 10px;}
+.personal-detail-input-fields{margin: 10px 0; padding: 0 10px; overflow: hidden;}
+.personal-detail-input-fields label {text-align: right; width:250px;}
+.add-feature{width:100%; overflow:hidden; padding:15px 10px}
+table{margin:0 auto}
+table td{width:100px; text-align: center; padding:0 10px}
+.backbtn{width:100px; margin: 0 auto;}

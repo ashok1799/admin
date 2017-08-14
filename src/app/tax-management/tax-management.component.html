@@ -1,0 +1,181 @@
+<app-navbar></app-navbar>
+
+<div class="dash">
+    <div class="bread">
+        <ul>
+            <li><a routerLink="/Dashboard"><i class="fa fa-dashboard"></i>Dashboard</a></li>
+        </ul>
+    </div>
+    
+    <div class="vital-states col-lg-12">
+	<div class="titile-bar-headers">
+            <span>Candidates</span>
+        </div>
+        <div class="vital-states-container">
+            
+            <table class="schooling-table">
+                <tr>
+                    <!--<th style="width:150px">Slab Active</th>-->
+                    <th style="width:150px">Slab Name</th>
+                    <th style="width:150px">Tax Component</th>
+                    <th style="width:200px">Tax Percentage %</th>
+                    <th style="width:100px">Action</th>
+                </tr>
+                <tr *ngFor="let item of candidate">
+                    <!--<td style="width:150px"><td>-->
+                    <td><input type="checkbox" data-toggle="modal" data-target="#myModal2" value={{item.active_assigned_slab}} [(ngModel)]="item.active_assigned_slab" [checked]="item.active_assigned_slab" (change)="update(item.active_assigned_slab, item.candidate_tax_id)">{{item.candidate_slab_name}}</td>
+                    <td>{{item.candidate_tax_component}}</td>
+                    <td>{{item.candidate_tax_percentage}}</td> 
+                    <td><button type="button" data-toggle="modal" data-target="#myModal" (click)="particular_candidate_tax_slab_edit(item.candidate_slab_name, item.candidate_tax_component, item.candidate_tax_percentage)"><img src="assets/images/edit-icon.png" style="widht:20px; height:20px"></button>
+                    <button type="button" (click)="particular_candidate_tax_slab_history(item.candidate_slab_name)"><img src="assets/images/history.png" style="widht:20px; height:20px"></button>
+                    </td>
+                </tr>
+            </table>
+            <div class="add_team_modal">
+                      <!-- Modal -->
+                      <div class="modal fade" id="myModal" role="dialog">
+                            <div class="modal-dialog">
+
+                              <!-- Modal content-->
+                              <div class="modal-content">
+                                    <div class="modal-header">
+                                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                      <h4 class="modal-title">Slab Edit Candidate</h4>
+                                    </div>
+                                    <div class="modal-body">
+
+                                        <div class="personal-detail-input-fields">
+                                            <div class="personal-detail-input"> <label for="name">Tax Component:</label></div>
+                                            <div class="personal-detail-input"><input  [(ngModel)]="taxinfo.tax_component"  placeholder="Enter Tax Component" class="signup-input"/></div>
+                                        </div>
+                                        
+                                        <div class="personal-detail-input-fields">
+                                            <div class="personal-detail-input"> <label for="name">Tax Percentage:</label></div>
+                                            <div class="personal-detail-input"><input  [(ngModel)]="taxinfo.tax_percentage" placeholder="Enter Tax Percentage" class="signup-input"/></div>
+                                        </div>
+
+                                        <div class="backbtn">
+                                            <div class="personal-detail-input"><button type="button" (click)="update_tax()">Save</button></div>
+                                            <div class="personal-detail-input"><button type="button" data-dismiss="modal">Cancel</button></div>
+                                        </div>
+
+                                    </div>
+                              </div>
+
+                            </div>
+                      </div>
+
+            </div>
+            <div>
+                      <!-- Modal -->
+                      <div class="modal fade" id="myModal2" role="dialog">
+                            <div class="modal-dialog">
+
+                              <!-- Modal content-->
+                              <div class="modal-content">
+                                    <div class="modal-header">
+                                      <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
+                                      <h4 class="modal-title">Slab change Candidates</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div *ngIf="candidatetax.active_assigned_slab==false"><h3 style='text-align: center'>If You Remvoe Tax for particular slab</h3></div>
+                                        <div *ngIf="candidatetax.active_assigned_slab==true"><h3 style='text-align: center'>If You Add Tax for particular slab</h3></div>
+                                        <div class="backbtn">
+                                            <div class="personal-detail-input"><button type="button" (click)="update_tax_slab()">Save</button></div>
+                                            <div class="personal-detail-input"><button type="button" data-dismiss="modal" (click)="modelclose()">Cancel</button></div>
+                                        </div>
+
+                                    </div>
+                              </div>
+
+                            </div>
+                      </div>
+
+            </div>
+        </div>
+    </div>
+    
+    <div class="vital-states col-lg-12" style="margin: 50px 0 0 0">
+	<div class="titile-bar-headers">
+            <span>Company</span>
+        </div>
+        <div class="vital-states-container">
+            
+            <table class="schooling-table">
+                <tr>
+                    <th style="width:150px">Slab Name</th>
+                    <th style="width:150px">Tax Component</th>
+                    <th style="width:200px">Tax Percentage %</th>
+                    <th style="width:100px">Action</th>
+                </tr>
+                <tr *ngFor="let item of company">
+                    <td><input type="checkbox" data-toggle="modal" data-target="#myModal4" value={{item.active_assigned_slab}} [(ngModel)]="item.active_assigned_slab" [checked]="item.active_assigned_slab" (change)="update_company(item.active_assigned_slab, item.company_tax_id)">{{item.company_slab_name}}</td>
+                    <td>{{item.company_tax_component}}</td>
+                    <td>{{item.company_tax_percentage}}</td> 
+                    <td><button type="button" data-toggle="modal" data-target="#myModal1" (click)="particular_company_tax_slab_edit(item.company_slab_name, item.company_tax_component, item.company_tax_percentage)"><img src="assets/images/edit-icon.png" style="widht:20px; height:20px"></button>
+                    <button type="button" (click)="particular_company_tax_slab_history(item.company_slab_name)"><img src="assets/images/history.png" style="widht:20px; height:20px"></button>
+                    </td>
+                </tr>
+            </table>
+            <div class="add_team_modal">
+                      <!-- Modal -->
+                      <div class="modal fade" id="myModal1" role="dialog">
+                            <div class="modal-dialog">
+
+                              <!-- Modal content-->
+                              <div class="modal-content">
+                                    <div class="modal-header">
+                                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                      <h4 class="modal-title">Slab Edit Company</h4>
+                                    </div>
+                                    <div class="modal-body">
+
+                                        <div class="personal-detail-input-fields">
+                                            <div class="personal-detail-input"> <label for="name">Tax Component:</label></div>
+                                            <div class="personal-detail-input"><input  [(ngModel)]="taxinfo.tax_component"  placeholder="Enter Tax Component" class="signup-input"/></div>
+                                        </div>
+                                        
+                                        <div class="personal-detail-input-fields">
+                                            <div class="personal-detail-input"> <label for="name">Tax Percentage:</label></div>
+                                            <div class="personal-detail-input"><input  [(ngModel)]="taxinfo.tax_percentage" placeholder="Enter Tax Percentage" class="signup-input"/></div>
+                                        </div>
+
+                                        <div class="backbtn">
+                                            <div class="personal-detail-input"><button type="button" (click)="update_tax_company()">Save</button></div>
+                                            <div class="personal-detail-input"><button type="button" data-dismiss="modal">Cancel</button></div>
+                                        </div>
+
+                                    </div>
+                              </div>
+
+                            </div>
+                      </div>
+
+            </div>
+            
+                                  <!-- Modal -->
+                      <div class="modal fade" id="myModal4" role="dialog">
+                            <div class="modal-dialog">
+
+                              <!-- Modal content-->
+                              <div class="modal-content">
+                                    <div class="modal-header">
+                                      <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
+                                      <h4 class="modal-title">Slab change Company</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div *ngIf="companytax.active_assigned_slab==false"><h3 style='text-align: center'>If You Remvoe Tax for particular slab</h3></div>
+                                        <div *ngIf="companytax.active_assigned_slab==true"><h3 style='text-align: center'>If You Add Tax for particular slab</h3></div>
+                                        <div class="backbtn">
+                                            <div class="personal-detail-input"><button type="button" (click)="update_tax_slab_company()">Save</button></div>
+                                            <div class="personal-detail-input"><button type="button" data-dismiss="modal" (click)="modelclose()">Cancel</button></div>
+                                        </div>
+
+                                    </div>
+                              </div>
+
+                            </div>
+                      </div>
+        </div>
+    </div>
+</div>

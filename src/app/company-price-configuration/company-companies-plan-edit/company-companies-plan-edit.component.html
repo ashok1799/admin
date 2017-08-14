@@ -1,0 +1,62 @@
+<app-navbar></app-navbar>
+
+<div class="dash">
+    <div class="bread">
+        <ul>
+            <li><a routerLink="/Dashboard"><i class="fa fa-dashboard"></i>Dashboard</a></li>
+        </ul>
+    </div>
+    
+    <div class="vital-states col-lg-12">
+	<div class="titile-bar-headers">
+            <span>Company Free Plan Details</span>
+        </div>
+        
+        <div class="personal-details">
+            <div class="plans col-lg-10 col-lg-offset-1">
+                <div class="titile-bar-headers">
+                    <span>Companies Plan Edit</span>
+                </div>
+                <div class="plan-container">
+                    <div class="plan-history">
+                        <div class="history">
+                            <button type="button" (click)="company_plan_edit()">Save</button>
+                            <button type="button" (click)="cancel()">Cancel</button>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="add-feature">
+                        <table width="810" border="1">
+                          <tr>
+                            <td style="width:150px">Features / Plan</td>
+                            <td *ngFor="let company of companyplan" class="company_type">{{company.company_type}}</td>  
+                          </tr>
+                          <tr>
+                            <td>Price</td>
+                            <td *ngFor="let price of companyplan; let i = index"><input name="price.plan_cost" value="{{price.plan_cost}}" [(ngModel)]="price.plan_cost" (change)="update(i, price.plan_cost, $event)"/></td>
+                          </tr>
+<!--                          <tr>
+                            <td>No of Job Posts</td>
+                            <td *ngFor="let job_post of companyplan; let i = index"><input name="job_post.no_of_job_posts" value="{{job_post.no_of_job_posts}}" [(ngModel)]="job_post.no_of_job_posts" (change)="update(i, job_post.no_of_job_posts, $event)"/></td>
+                          </tr>-->
+                          <tr>
+                            <td>Salary Limit</td>
+                            <!--<td *ngFor="let salary of companyplan; let i = index"><input name="salary.salary_limit" value={{salary.salary_limit}} [(ngModel)]="salary.salary_limit" (change)="update(i, salary.salary_limit, $event)"/></td>-->
+                            <td *ngIf="companyplan[0]!=null"><span>below</span> <input style="width:150px; border:1px solid #d8d8d8;" name="companyplan[0].salary_limit" value="{{companyplan[0].salary_limit}}" [(ngModel)]="companyplan[0].salary_limit" (change)="salary(i, companyplan[0].salary_limit, $event)"/></td>
+                            <td *ngIf="companyplan[1]!=null"><span>above</span> {{companyplan[1].salary_limit}}</td>
+                          </tr>
+                          <tr>
+                            <td>Replacement Warranty</td>
+                            <td *ngFor="let replacement of companyplan; let i = index"><input name="salary.salary_limit" value={{replacement.replacement_warranty}} [(ngModel)]="replacement.replacement_warranty" (change)="update(i, replacement.replacement_warranty, $event)"/></td>
+                          </tr>
+                          <tr>
+                            <td>No of candidates to be sent for interview</td>
+                            <td *ngFor="let candidate_limit of companyplan; let i = index"><input name="salary.salary_limit" value={{candidate_limit.candidate_limit_per_post}} [(ngModel)]="candidate_limit.candidate_limit_per_post" (change)="update(i, candidate_limit.candidate_limit_per_post, $event)"/></td>
+                          </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

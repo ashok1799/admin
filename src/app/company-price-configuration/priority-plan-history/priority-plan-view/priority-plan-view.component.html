@@ -1,0 +1,104 @@
+<app-navbar></app-navbar>
+
+<div class="dash">
+    <div class="bread">
+        <ul>
+            <li><a routerLink="/Dashboard"><i class="fa fa-dashboard"></i>Dashboard</a></li>
+        </ul>
+    </div>
+    
+        <div class="col-lg-12">
+            <div class="titile-bar-headers">
+                <span>Priority Plan Details </span>
+            </div>
+            <div class="personal-details">
+                <div style="margin-bottom: 25px">      
+                    
+                            <div class="personal-detail-input-fields">
+                                <div class="personal-detail-input"> <label for="name">Label:</label></div>
+                                    <div class="personal-detail-input">{{data?.label_name}}
+                                    </div>
+                            </div>
+                            
+
+                    
+                            <div class="personal-detail-input-fields">
+                                <div class="personal-detail-input"> <label for="name">Date:</label></div>
+                                    <div class="personal-detail-input">{{data?.start_date}} to {{data?.end_date}}
+                                    </div>
+                            </div>
+                    
+                    
+                            <div class="personal-detail-input-fields">
+                                <div class="personal-detail-input"> <label for="name">Timestamp:</label></div>
+                                    <div class="personal-detail-input">{{data?.timestamp_start}} to {{data?.timestamp_end}}</div>
+                            </div>
+                    
+                    
+                            <div class="personal-detail-input-fields">
+                                <div class="personal-detail-input"> <label for="name">Plan created by:</label></div>
+                                    <div class="personal-detail-input">{{data?.created_by}}</div>
+                            </div>
+                    
+                            <div class="personal-detail-input-fields">
+                                <div class="personal-detail-input"> <label for="name">No of Job Posts:</label></div>
+                                <div class="personal-detail-input">{{data?.no_of_jobs}}</div>
+                            </div>
+                    
+                            <div class="personal-detail-input-fields">
+                                <div class="personal-detail-input"> <label for="name">Companies Enrolled:</label></div>
+                                <div class="personal-detail-input">{{data?.companies_enrolled}}</div>
+                            </div>
+                    
+                            <div class="add-feature">
+                                <table width="810" border="1">
+                                  <tr>
+                                    <td style="width:200px">Features / Plan</td>
+                                    <td style="width:200px">Priority Sourcing - 1</td>
+                                    <td style="width:200px">Priority Sourcing - 2</td>
+                                    <td style="width:200px">Priority Sourcing - 3</td>
+                                    <td style="width:200px">Priority Sourcing - 4</td>
+                                    <td style="width:200px">Priority Sourcing - 5</td>
+                                    <!--<td *ngFor="let company of data?.plans" class="company_type">{{company.company_type}}</td>-->  
+                                  </tr>
+                                  <tr>
+                                    <td>Price</td>
+                                    <td *ngFor="let price of data?.plans">{{price.plan_cost}}</td>
+                                  </tr>
+<!--                                  <tr>
+                                    <td>No of Job Posts</td>
+                                    <td *ngFor="let job_post of data?.plans">{{job_post.no_of_job_posts}}</td>
+                                  </tr>-->
+<!--                                  <tr>
+                                    <td>Posts per Month</td>
+                                    <td *ngFor="let posts_per_month of data?.plans">{{posts_per_month.posts_per_month}}</td>
+                                  </tr>
+                                  <tr>
+                                    <td>No of Vacancy</td>
+                                    <td *ngFor="let vacancies of data?.plans">{{vacancies.no_of_vacancies}}</td>
+                                  </tr>-->
+                                  <tr>
+                                    <td>Salary Limit</td>
+                                    <td *ngFor="let salary of data?.plans">{{salary.salary_limit}}</td>
+                                  </tr>
+                                  <tr>
+                                    <td>Replacement Warranty</td>
+                                    <td *ngFor="let replacement of data?.plans">{{replacement.replacement_warranty}}</td>
+                                  </tr>
+                                  <tr>
+                                    <td>No of candidates to be sent for interview</td>
+                                    <td *ngFor="let candidate_limit of data?.plans">{{candidate_limit.candidate_limit_per_post}}</td>
+                                  </tr>
+                                </table>
+                            </div>
+                    
+                </div>
+                
+                <div class="backbtn">
+                    <span><button type="button" (click)="cancel()">Back</button></span>
+                </div>
+                
+            </div>
+        </div>
+    
+</div>

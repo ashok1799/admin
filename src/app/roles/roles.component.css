@@ -1,0 +1,22 @@
+.dash{margin-left:225px;}
+.titile-bar-headers{padding:10px 10px; background:#4fb948}
+.vital-states-container{padding:30px 20px; background:#ebebeb; overflow:hidden}
+.jobs-viewed{border:1px solid #333333; margin:0 42px}
+.icon{float:right;}
+.jobs-viewed-details span{text-align:center; display:block}
+.schooling-table{width:900px; margin:0 auto; background:#d8d8d8;}
+.schooling-table th{border:none; background:#4fb948; color:#fff; padding:10px 0; text-align: center}
+.schooling-table td{text-align: center}
+
+.personal-detail-input{float:left; padding:0 10px;}
+.personal-detail-input-fields{margin: 10px 0; padding: 0 10px; overflow: hidden;}
+.personal-detail-input-fields label {text-align: right; width:150px;}
+.modal-header{background:#4fb948}
+.modal-title{color:#fff;}
+.add_team_modal{width:20%; float:left; margin-left:18%}
+.add_role_modal{width:20%; overflow: hidden; margin: 0 auto;}
+.add_new_role{width:150px; margin-top:50px}
+.address{width:195px;}
+
+
+.schooling-table tr{border-bottom:2px solid #f7f7f7}

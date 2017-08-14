@@ -1,0 +1,33 @@
+<app-navbar></app-navbar>
+
+<div class="dash">
+    <div class="bread">
+        <ul>
+            <li><a routerLink="/Dashboard"><i class="fa fa-dashboard"></i>Dashboard</a></li>
+        </ul>
+    </div>
+    
+    <div class="vital-states col-lg-12">
+	<div class="titile-bar-headers">
+            <span>Candidates Plan Associate</span>
+        </div>
+        <div class="vital-states-container">
+            
+            <table class="schooling-table">
+                <tr>
+                    <th style="width:150px">S.No</th>
+                    <th style="width:150px">Name</th>
+                    <th style="width:200px">Mobile Number</th>
+                    <th style="width:400px">Plan Label</th>
+                </tr>
+                <tr *ngFor="let item of data; let i=index">
+                    <td>{{i+1}}</td>
+                    <td>{{item.candidate_name}}</td>
+                    <td>{{item.candidate_mobile_no}}</td> 
+                    <td><span *ngFor="let plan of item.plan_label">{{plan}}<span *ngIf="plan.length > 1">,</span> </span></td> 
+                </tr>
+            </table>
+            <div class="backbtn"><button type="button" (click)="cancel()">Back</button></div>
+        </div>
+    </div>
+</div>
